@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "finlandica";
+  src: url("finlandica-boldWeb.woff2") format("woff2");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "finlandica";
+  src: url("finlandica-bolditalicWeb.woff2") format("woff2");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "finlandica";
+  src: url("finlandica-italicWeb.woff2") format("woff2");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "finlandica";
+  src: url("finlandica-regularWeb.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}

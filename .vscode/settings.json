@@ -1,0 +1,8 @@
+{
+    "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "todohighlight.isCaseSensitive": false,
+    "git.scanRepositories": [
+        "https://github.com/GalGreenfield/Finno.git"
+    ]
+}
