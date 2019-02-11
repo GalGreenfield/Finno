@@ -29,6 +29,7 @@
 #### I THINK I MIGHT HAVE FOUND SOMETING THAT WOULD DO THE LOGIC FOR ME AND I'D BE ABLE TO USE IT AS AN API!!!
 ##### http://www2.lingsoft.fi/cgi-bin/fintwol
 
+#### For a word to be constructed, a `stem` property is required.
 
   `Word` $\in$ the dictionary has the following properties:
 
@@ -62,11 +63,16 @@ I'll need to think how to implement various WordPart types (suffiex, stems, etc.
 - [x] Figure out how to be able to fully import and render the SVG logo.
 - [ ] ~~Design a `Grid` element in `index.js`~~
 - [x] Design a grid in `App.jsx`
-- [ ] Refine the grid in `App.jsx` so the cards look bigger, but still have "good" ratios (maybe look at Material UI specifications to find such ratios)
+- [ ] ~~Refine the grid in `App.jsx` so the cards look bigger, but still have "good" ratios (maybe look at Material UI specifications to find such ratios)~~
 - [x] Create a `colors` palette component based on the Material Design color palette that I've created.
-- [ ] Style and structure the `WordPart`  component to fit the mockup
+- [x] Style and structure the `WordPart` component to fit the mockup  using the Material-UI `CardContent` and `CardActions` components.
+- [ ] Learn how to and apply: change the mobile appbar's (at `AppBarOld.jsx`) mobile pop-up menu's backgrond color to some hue of `primaryColor`.
+
 
 ### Icons
+
+- [ ] Create an `Icons` component and export from it multiple icons
+- [ ] In `WordPart`, import multiple icons from `Icons`, put them inside a `div` container and give them (except for last one) a `margin-right`
 
  Create/get icons for:
 - [x] Suffix
@@ -74,8 +80,26 @@ I'll need to think how to implement various WordPart types (suffiex, stems, etc.
 - [x] Singular
 - [x] Plural
 
+
   Grammatical cases - add as you learn more grammatical cases from the book:
-  - [ ] test
+  - [ ] Nominative (base form) - todo: think if I want an icon for that
+  - [ ] Genetive
+  - [ ] Accusative
+  - [ ] Partitive
+  - [ ] Inessive
+  - [ ] Elative
+  - [ ] Adessive
+  - [ ] Ablative
+  - [ ] Allative
+  - [ ] Essive
+  - [ ] Translative
+  - [ ] Comitative
+  - [ ] Instructive
+
+  Maybe add:
+  - [ ] Verb
+  - [ ] Noun
+  - [ ] Adjective
 
 <br>
 

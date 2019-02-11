@@ -1,13 +1,6 @@
 import React from "react";
-import Proproles from "prop-types";
 
 import { withStyles } from "@material-ui/core/styles";
-
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 
 import WordPart from "./WordPart.jsx";
 
@@ -46,15 +39,30 @@ class Word extends React.Component {
   }
 
   render() {
+
     const { classes } = this.props;
     //Create and populate dynamically `WordPart` component from this.wordParts
     const wordPartsCards = this.wordParts.map(
+
       (wordPart, index) => {
-        return <WordPart text={wordPart.text} role={wordPart.role} key={index} 
-        />; //Todo: pass wordPart props with spread and then put a key
+        
+        var wordPartProps = {
+          text: wordPart.text,
+          role: wordPart.role,
+          key: index
+        }
+        if (wordPart.hasOwnProperty('translation')) {
+          wordPartProps['translation'] = this.props.trasnlation;
+        } 
+
+        return <WordPart {...wordPartProps} />;
+        
     });
 
-    return <div className={classes.word}>{wordPartsCards}</div>;
+    return (
+      <div className={classes.word}>
+        {wordPartsCards}
+      </div>);
   }
 }
 
