@@ -13,9 +13,9 @@ import Typography from "@material-ui/core/Typography";
 /*For the word role*/
 //import Tooltip from "@material-ui/core/Tooltip";
 
-import { primaryColor, secondaryColor } from '../style/colors';
+import { primaryColor, secondaryColor } from '../../style/colors';
 
-import RoleIcons from './WordPart/RoleIcons.jsx';
+import RoleIcons from './RoleIcons.jsx';
 
 
 /*Todo: remove unnecessary imports*/
@@ -42,7 +42,6 @@ const styles = {
   },
   WordPart__role__text: {
     color: primaryColor[300],
-    textAlign: 'center', //todo: replace IF I switch `WordPart` symbols to icons (currently: full textual description)
     display: 'flex',
     flexDirection: 'column',
   },
@@ -69,10 +68,8 @@ function WordPart(props) {
 
       </CardContent>
 
-      <CardActions disableActionSpacing={true}	className={classes.WordPart__role__container}>
-        
+      <CardActions disableActionSpacing={true} className={classes.WordPart__role__container}>
         <RoleIcons WordPart__props={props}/>
-
       </CardActions>
 
     </Card>

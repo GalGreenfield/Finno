@@ -53,8 +53,12 @@
 I'll need to think how to implement various WordPart types (suffiex, stems, etc.) - what properties they will have and how will this/these object be structured in relation to `WordType`.
 
 ### Todo: 
-- [ ] Pass **all** props of `WordPart` to `Word` to be able to use stem `WordParts`'s `translation` property to render the stem's meaning in English
-- [ ] Decide whether I want to have (a `meaning` prop for stem `WordPart`s and a `type` prop for suffix `WordPart`s) or have a `meaning` prop for both.
+- [x] Pass **all** props of `WordPart` to `Word` to be able to use stem `WordParts`'s `translation` property to render the stem's meaning in English
+- [ ] Decide whether I want to have (a `meaning` prop for stem `WordPart`s and a `type` prop for suffix `WordPart`s) or have a `meaning` prop for both
+- [ ] ~~Decide if I want for for Word to render `Suffix` and other WordParts (specialized classes/components) or render `WordPart` components instead~~
+
+- [ ] ~~Make `WordPart` components render WordPart components based on role (`Suffix`, `Stem`)~~
+- [ ] Finish converting `Word`'s wordPart input elements into components (`Suffix`, `Stem`)
 
 <br>
 
@@ -105,8 +109,9 @@ I'll need to think how to implement various WordPart types (suffiex, stems, etc.
 
 ## Data Sources
 
-- [x] Find a website that contains easy-to-request Finnish words <!--with conjugations-->
-      https://en.wiktionary.org/wiki/User:Matthias_Buchmeier/fi-en-k
+- [ ] Find a website that contains easy-to-request Finnish words 
+  - Will probably not us this: ~~https://en.wiktionary.org/wiki/User:Matthias_Buchmeier/fi-en-k~~
+  - Currently in talks with Lingsoft for their tool at http://www2.lingsoft.fi/cgi-bin/fintwol
 
 <br>
 

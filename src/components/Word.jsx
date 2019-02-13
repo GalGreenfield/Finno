@@ -2,21 +2,16 @@ import React from "react";
 
 import { withStyles } from "@material-ui/core/styles";
 
-import WordPart from "./WordPart.jsx";
+import WordPart from "./WordPart/WordPart.jsx";
+
+import Stem from './WordPart/Stem.jsx';
+
+import deconstructWord from '../word-deconstruction/deconstruct-word.jsx';
 
 /*todo: build more word construction/deconstruction functions such as `conjugate`
  that conjugates a word based on a given conjugation (that uses grammartical rules)*/
-function deconstructWord(word) {
-  /*Replace logic below later to support words based on grammar rules*/
-  if (word.match(/autoissa/i)) {
-    const wordParts = [
-      { text: "auto", role: "stem", translation: "car"},
-      { text: "i", role: "suffix" },
-      { text: "ssa", role: "suffix" }
-    ];
-    return wordParts;
-  } else return `Requested word ${word} is not supported at the moment.`;
-}
+
+
 
 const styles = {
   word: {
@@ -30,7 +25,7 @@ const styles = {
   }
 };
 
-//todo: modify based on the `todo.md` specifications
+//to do: modify based on the `todo.md` specifications
 class Word extends React.Component {
   constructor(props) {
     super(props);
@@ -44,18 +39,14 @@ class Word extends React.Component {
     //Create and populate dynamically `WordPart` component from this.wordParts
     const wordPartsCards = this.wordParts.map(
 
-      (wordPart, index) => {
+      (wordPartProps, index) => {
         
-        var wordPartProps = {
-          text: wordPart.text,
-          role: wordPart.role,
-          key: index
-        }
-        if (wordPart.hasOwnProperty('translation')) {
+        if (wordPartProps.hasOwnProperty('translation')) {
           wordPartProps['translation'] = this.props.trasnlation;
-        } 
+        }
 
-        return <WordPart {...wordPartProps} />;
+        //to do: check if the index really is unique
+        return <WordPart {...wordPartProps} key={index} />;
         
     });
 
