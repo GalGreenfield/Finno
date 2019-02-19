@@ -4,9 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 import WordPart from "./WordPart/WordPart.jsx";
 
-import Stem from './WordPart/Stem.jsx';
-
-import deconstructWord from '../word-deconstruction/deconstruct-word.jsx';
+import deconstructWord from '../word-deconstruction/deconstructWord.jsx';
 
 /*todo: build more word construction/deconstruction functions such as `conjugate`
  that conjugates a word based on a given conjugation (that uses grammartical rules)*/
@@ -40,15 +38,13 @@ class Word extends React.Component {
     const wordPartsCards = this.wordParts.map(
 
       (wordPartProps, index) => {
-        
-        if (wordPartProps.hasOwnProperty('translation')) {
-          wordPartProps['translation'] = this.props.trasnlation;
-        }
 
         //to do: check if the index really is unique
         return <WordPart {...wordPartProps} key={index} />;
         
-    });
+      }
+      
+    );
 
     return (
       <div className={classes.word}>

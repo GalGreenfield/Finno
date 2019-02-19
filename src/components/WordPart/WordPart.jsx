@@ -8,38 +8,51 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 //#endregion
 
-import Typography from "@material-ui/core/Typography";
+import { fade } from "@material-ui/core/styles/colorManipulator";
 
-/*For the word role*/
-//import Tooltip from "@material-ui/core/Tooltip";
+import AddWordPartButton from './modify-word-parts/AddWordPartButton.jsx';
+
+import Typography from "@material-ui/core/Typography";
 
 import { primaryColor, secondaryColor } from '../../style/colors';
 
-import RoleIcons from './RoleIcons.jsx';
-
-
-/*Todo: remove unnecessary imports*/
-
+import WordPartTypeIcons from './WordPartTypeIcons.jsx';
 
 const styles = {
+
+  WordPart__card__container: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+
   WordPart: {
   },
+
   WordPart__text__container: {
+    height: '20vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: primaryColor['main'],
     padding: '24px',
   },
+
   WordPart__text: {
-    fontSize: "4.5rem",
+    fontSize: "6.75rem",
+    lineHeight: 'unset',
     color: secondaryColor['main']
   },
+
   WordPart__role__container: {
+    padding: 'unset',
     display: 'flex',
     justifyContent: 'center',
-    padding: '16px'
   },
+
   WordPart__role__icon: {
     height: '24px',
   },
+
   WordPart__role__text: {
     color: primaryColor[300],
     display: 'flex',
@@ -54,25 +67,34 @@ function WordPart(props) {
 
   return (
 
+    <div className={classes.WordPart__card__container}>
+
     <Card className={classes.WordPart} key={props.key}>
 
       <CardContent className={classes.WordPart__text__container}>
-      
+
         <Typography
           className={classes.WordPart__text}
           color="textPrimary"
-          align="center"
         >
           {props.text}
         </Typography>
 
+
       </CardContent>
 
+      
+
       <CardActions disableActionSpacing={true} className={classes.WordPart__role__container}>
-        <RoleIcons WordPart__props={props}/>
+        <WordPartTypeIcons WordPart__props={props}/>
       </CardActions>
 
     </Card>
+
+
+    <AddWordPartButton />
+
+    </div>
 
   );
 }
