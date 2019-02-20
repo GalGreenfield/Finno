@@ -9,8 +9,6 @@ import deconstructWord from '../word-deconstruction/deconstructWord.jsx';
 /*todo: build more word construction/deconstruction functions such as `conjugate`
  that conjugates a word based on a given conjugation (that uses grammartical rules)*/
 
-
-
 const styles = {
   word: {
     display: "flex",
