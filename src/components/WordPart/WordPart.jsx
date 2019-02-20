@@ -8,21 +8,25 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 //#endregion
 
-import { fade } from "@material-ui/core/styles/colorManipulator";
-
-import AddWordPartButton from './modify-word-parts/AddWordPartButton.jsx';
+import AddWordPartButton from '../modify-word/AddWordPartButton.jsx';
 
 import Typography from "@material-ui/core/Typography";
+
+/*For the word role*/
+//import Tooltip from "@material-ui/core/Tooltip";
 
 import { primaryColor, secondaryColor } from '../../style/colors';
 
 import WordPartTypeIcons from './WordPartTypeIcons.jsx';
 
+
+/*Todo: remove unnecessary imports*/
+
+
 const styles = {
 
   WordPart__card__container: {
     display: 'flex',
-    alignItems: 'center',
   },
 
   WordPart: {
@@ -51,12 +55,12 @@ const styles = {
 
   WordPart__role__icon: {
     height: '24px',
+    padding: '12px'
   },
 
   WordPart__role__text: {
     color: primaryColor[300],
     display: 'flex',
-    flexDirection: 'column',
   },
 
 };
@@ -69,34 +73,37 @@ function WordPart(props) {
 
     <div className={classes.WordPart__card__container}>
 
-    <Card className={classes.WordPart} key={props.key}>
+      <Card className={classes.WordPart} key={props.key}>
 
-      <CardContent className={classes.WordPart__text__container}>
+        <CardContent className={classes.WordPart__text__container}>
+        
 
-        <Typography
-          className={classes.WordPart__text}
-          color="textPrimary"
-        >
-          {props.text}
-        </Typography>
-
-
-      </CardContent>
-
-      
-
-      <CardActions disableActionSpacing={true} className={classes.WordPart__role__container}>
-        <WordPartTypeIcons WordPart__props={props}/>
-      </CardActions>
-
-    </Card>
+          <Typography
+            className={classes.WordPart__text}
+            color="textPrimary"
+            align="center"
+          >
+            {props.text}
+          </Typography>
 
 
-    <AddWordPartButton />
+        </CardContent>
+
+
+
+        <CardActions disableActionSpacing={true} className={classes.WordPart__role__container}>
+          <WordPartTypeIcons WordPart__props={props}/>
+        </CardActions>
+
+      </Card>
+
+
+      <AddWordPartButton />
 
     </div>
 
   );
 }
+
 
 export default withStyles(styles)(WordPart);

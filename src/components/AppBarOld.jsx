@@ -144,7 +144,7 @@ class PrimarySearchAppBar extends React.Component {
         onClose={this.handleMobileMenuClose}
       >
         <MenuItem >
-          <IconButton color="inherit" style={{fill: primaryColor['main']}}>
+          <IconButton color="inherit">
             <AccountCircle style={{fill: primaryColor['main']}} />
           </IconButton>
           <p>Profile</p>
@@ -171,7 +171,7 @@ class PrimarySearchAppBar extends React.Component {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Word"
+                placeholder="Search…"
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput

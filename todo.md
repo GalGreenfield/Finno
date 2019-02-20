@@ -14,16 +14,12 @@
 
 <br>
 
-### Work Environment
-
- - [ ] Configure `ngrock` in a config file (already created `ngrock-config`) - don't forget to configure the path to there.
-
-
+### Working Environment
 
 #### Terminal
  - [ ] In `zsh`, find a way to get a correct path to `antigen.zsh` and add the path to `~/.zshrc`
  - [ ] Using `nvm`, install the latest version of `Node.js` (`arch 64`).
- - [ ] In `Visual Studio Code`, revert the terminal back to `bash`: 
+- [ ] In `Visual Studio Code`, revert the terminal back to `bash`: 
   in `Visual Studio Code`'s `settings.js`, uncomment `//"terminal.integrated.shellArgs.windows": "bash"`
 
 <br>
@@ -75,19 +71,7 @@ I'll need to think how to implement various WordPart types (suffiex, stems, etc.
 - [x] Create a `colors` palette component based on the Material Design color palette that I've created.
 - [x] Style and structure the `WordPart` component to fit the mockup  using the Material-UI `CardContent` and `CardActions` components.
 - [ ] Learn how to and apply: change the mobile appbar's (at `AppBarOld.jsx`) mobile pop-up menu's backgrond color to some hue of `primaryColor`.
-- [ ] Try to create a custom `Material-UI` `theme` using the colors in `colors.js` and `MuiThemeProvider`.
-- [ ] Create a custom IconButton that's filled by a color.
 
-Interactions with a `Word`:
-  - Removing a `WordPart`:
-    - [ ] Add an option to remove each `WordPart` by swiping either up or down with fading. Check  libraries: `react-beautiful-dnd` and `react-draggable`.
-    - [ ]  Display an `undo` message after deleting it.
-    - `add` Button
-      - [ ] Add a new `add` button after each `WordPart` on hover.
-      - On click:
-        - [ ] Stem: open a modal in which there is text field to search for a stem (like the `Word` search).
-        - [ ] Suffix: open a modal with a grid, in which there are icons + names of suffixes to add.
-  
 
 ### Icons
 
@@ -136,12 +120,8 @@ Interactions with a `Word`:
   - [ ] Create a list of all consonant gradations (include psuedo-code terms of when they're apply)
   - [ ] Decide if I'll go with the definition for consonant gradation rules by the book (Finnish: An Essential Grammar) or by Wikipedia
 
-
+<!---
 ## Deployment
 
-  - [ ] Deploy the app to Heroku. Instructions: https://dashboard.heroku.com/apps/finno/deploy/heroku-git
-  - [ ] Check if a domain is required for Heroku
-
-<!---
 ### Production
 --->
