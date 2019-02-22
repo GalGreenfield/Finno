@@ -1,6 +1,7 @@
 import React from "react";
 
 import { withStyles } from "@material-ui/core/styles";
+import { primaryColor, secondaryColor } from '../../style/colors';
 
 //#region Card imports
 import Card from "@material-ui/core/Card";
@@ -8,16 +9,19 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 //#endregion
 
-import AddWordPartButton from '../modify-word/AddWordPartButton.jsx';
+import AddWordPartButton from '../modify-word/ModifyWordPartButton';
+import SelectSuffixToAdd from '../modify-word/SelectSuffixToModify';
 
 import Typography from "@material-ui/core/Typography";
 
 /*For the word role*/
 //import Tooltip from "@material-ui/core/Tooltip";
 
-import { primaryColor, secondaryColor } from '../../style/colors';
 
-import WordPartTypeIcons from './WordPartTypeIcons.jsx';
+import WordPartTypeIcons from './WordPartTypeIcons';
+
+import IconButton from "@material-ui/core/IconButton";
+import AddIcon from "@material-ui/icons/Add";
 
 
 /*Todo: remove unnecessary imports*/
@@ -98,7 +102,9 @@ function WordPart(props) {
       </Card>
 
 
-      <AddWordPartButton />
+      {/*<AddWordPartButton />*/}
+      
+      <SelectSuffixToAdd action="add"/>
 
     </div>
 

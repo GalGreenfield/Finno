@@ -12,7 +12,6 @@ import stylesheet from './index.css';
 
 import { Grid, Cell } from 'styled-css-grid';
 
-
 export default function App() {
 
   return (

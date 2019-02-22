@@ -120,8 +120,13 @@ I'll need to think how to implement various WordPart types (suffiex, stems, etc.
   - [ ] Create a list of all consonant gradations (include psuedo-code terms of when they're apply)
   - [ ] Decide if I'll go with the definition for consonant gradation rules by the book (Finnish: An Essential Grammar) or by Wikipedia
 
-<!---
-## Deployment
 
+### Deployment
+
+- [ ] Deploy the app to [Heroku](https://dashboard.heroku.com/apps/finno/deploy/heroku-git)
+- [ ] When I start needing server functionality, migrate to `Sails.js`. [How to](https://medium.com/@larsbs/how-to-use-react-as-a-template-engine-in-sails-js-bb6b22c7dba6)
+
+
+<!--- 
 ### Production
 --->

@@ -4,5 +4,7 @@
     "todohighlight.isCaseSensitive": false,
     "git.scanRepositories": [
         "https://github.com/GalGreenfield/Finno.git"
-    ]
+    ],
+
+    "editor.tabSize": 2,
 }
