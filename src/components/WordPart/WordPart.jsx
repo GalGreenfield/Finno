@@ -10,7 +10,7 @@ import CardActions from "@material-ui/core/CardActions";
 //#endregion
 
 import AddWordPartButton from '../modify-word/ModifyWordPartButton';
-import SelectSuffixToAdd from '../modify-word/SelectSuffixToModify';
+import SelectSuffixToModify from '../modify-word/SelectSuffixToModify';
 
 import Typography from "@material-ui/core/Typography";
 
@@ -22,6 +22,7 @@ import WordPartTypeIcons from './WordPartTypeIcons';
 
 import IconButton from "@material-ui/core/IconButton";
 import AddIcon from "@material-ui/icons/Add";
+import ModifyWordPartButton from "../modify-word/ModifyWordPartButton";
 
 
 /*Todo: remove unnecessary imports*/
@@ -37,18 +38,19 @@ const styles = {
   },
 
   WordPart__text__container: {
-    height: '20vh',
+    height: '22.5vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: primaryColor['main'],
-    padding: '24px',
+    padding: '24px 32px',
   },
 
   WordPart__text: {
+    textRendering: 'optimizeLegibility',
     fontSize: "6.75rem",
     lineHeight: 'unset',
-    color: secondaryColor['main']
+    color: secondaryColor['main'],
   },
 
   WordPart__role__container: {
@@ -71,44 +73,88 @@ const styles = {
 
 function WordPart(props) {
 
+  function getModifyWordPartActionType() {
+    var action = '';
+    if (props.wordPartType==='suffix') {
+      return action='add';
+    }
+    if (props.wordPartType==='stem') {
+      return action='replace';
+    }
+  }
+
   const { classes } = props;
 
-  return (
+  const action = getModifyWordPartActionType();
 
-    <div className={classes.WordPart__card__container}>
+  if (props.wordPartType==='stem') {
 
-      <Card className={classes.WordPart} key={props.key}>
+    return (
 
-        <CardContent className={classes.WordPart__text__container}>
+      <div className={classes.WordPart__card__container}>
+
+        <Card className={classes.WordPart} key={props.key}>
+
+          <CardContent className={classes.WordPart__text__container}>
+            
+            <Typography
+              className={classes.WordPart__text}
+              color="textPrimary"
+              align="center"
+            >
+              {props.text}
+            </Typography>
+
+          </CardContent>
+          
+          <CardActions disableActionSpacing={true} className={classes.WordPart__role__container}>
+            <WordPartTypeIcons WordPart__props={props}/>
+          </CardActions>
+
+        </Card>
+
+        <ModifyWordPartButton action={action}/>
         
+      </div>
 
-          <Typography
-            className={classes.WordPart__text}
-            color="textPrimary"
-            align="center"
-          >
-            {props.text}
-          </Typography>
+    );
 
+  }
 
-        </CardContent>
+  if (props.wordPartType==='suffix') {
 
+    return (
 
+      <div className={classes.WordPart__card__container}>
 
-        <CardActions disableActionSpacing={true} className={classes.WordPart__role__container}>
-          <WordPartTypeIcons WordPart__props={props}/>
-        </CardActions>
+        <Card className={classes.WordPart} key={props.key}>
 
-      </Card>
+          <CardContent className={classes.WordPart__text__container}>
+            
+            <Typography
+              className={classes.WordPart__text}
+              color="textPrimary"
+              align="center"
+            >
+              {props.text}
+            </Typography>
 
+          </CardContent>
+          
+          <CardActions disableActionSpacing={true} className={classes.WordPart__role__container}>
+            <WordPartTypeIcons WordPart__props={props}/>
+          </CardActions>
 
-      {/*<AddWordPartButton />*/}
-      
-      <SelectSuffixToAdd action="add"/>
+        </Card>
 
-    </div>
+        <SelectSuffixToModify action={action}/>
+        
+      </div>
 
-  );
+    );
+
+  }
+
 }
 
 

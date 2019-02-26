@@ -6,7 +6,7 @@ import WordPart from "./WordPart/WordPart.jsx";
 
 import deconstructWord from '../word-deconstruction/deconstructWord.js';
 
-/*todo: build more word construction/deconstruction functions such as `conjugate`
+/*TODO: build more word construction/deconstruction functions such as `conjugate`
  that conjugates a word based on a given conjugation (that uses grammartical rules)*/
 
 const styles = {
@@ -21,7 +21,7 @@ const styles = {
   }
 };
 
-//to do: modify based on the `todo.md` specifications
+//to do: modify based on the `TODO.md` specifications
 class Word extends React.Component {
   constructor(props) {
     super(props);

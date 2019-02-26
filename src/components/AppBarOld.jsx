@@ -1,22 +1,43 @@
-import React from "react";
-import PropTypes from "prop-types";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import InputBase from "@material-ui/core/InputBase";
+  //#region React Import
+  import React from "react";
+  import PropTypes from "prop-types";
+  //#endregion
+
+  //#region Material-UI Styling Imports
+  import { withStyles } from "@material-ui/core/styles";
+  import { fade } from "@material-ui/core/styles/colorManipulator";
+  //#endregion
+
+  //#region Colors Imports
+  import { primaryColor, secondaryColor } from '../style/colors'; 
+  //#endregion
+
+  //#region Appbar Imports
+  import AppBar from "@material-ui/core/AppBar";
+  import Toolbar from "@material-ui/core/Toolbar";
+  //#endregion
+
+  //#region Brand Imports
+  import { ReactComponent as Logo } from '../style/logo/logo.svg';
+  //#endregion
+
+  //#region Typography Imports
+  import Typography from '@material-ui/core/Typography';
+  import finlandica from '../style/fonts/finlandica/finlandica-stylesheet.css'; 
+  //#endregion 
+
+  //#region Menu Imports
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import { fade } from "@material-ui/core/styles/colorManipulator";
-import { withStyles } from "@material-ui/core/styles";
+import IconButton from "@material-ui/core/IconButton";
+import InputBase from "@material-ui/core/InputBase";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-
 import MoreIcon from "@material-ui/icons/MoreVert";
+//#endregion
 
-import { ReactComponent as Logo } from '../style/logo/logo.svg';
 
-import { primaryColor, secondaryColor } from '../style/colors'; 
 
 const styles = theme => ({
   root: {
@@ -28,6 +49,20 @@ const styles = theme => ({
   appBar: {
     backgroundColor: primaryColor['main']
   },
+
+  brandContainer: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  brandLogo: {
+    width: '50px',
+    marginRight: theme.spacing.unit * 2,
+  },
+  brandName: {
+    fontFamily: 'finlandica',
+    color: secondaryColor['main']
+  },
+
   menuButton: {
     marginLeft: -12,
     marginRight: 20
@@ -93,7 +128,6 @@ const styles = theme => ({
     }
   }
 });
-
 class PrimarySearchAppBar extends React.Component {
   state = {
     anchorEl: null,
@@ -164,7 +198,16 @@ class PrimarySearchAppBar extends React.Component {
               <MenuIcon />
             </IconButton>
 
-            <Logo width={50} />
+            <div className={classes.brandContainer}>
+              <Logo className={classes.brandLogo}/>
+              <Typography
+                variant="h5"
+                className={classes.brandName}
+              >
+                Finno
+              </Typography>
+            </div>
+            
 
             <div className={classes.search}>
               <div className={classes.searchIcon}>

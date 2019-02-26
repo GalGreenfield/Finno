@@ -1,10 +1,12 @@
 {
     "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
-    "todohighlight.isCaseSensitive": false,
+    "TODOhighlight.isCaseSensitive": false,
     "git.scanRepositories": [
         "https://github.com/GalGreenfield/Finno.git"
     ],
-
     "editor.tabSize": 2,
+    "svg.preview.background": "white",
+    "trello.token": "f43b0c8cf5dcd1f5f2cccd95329c965a9839633a25efe3b00e713d0f47ac485d",
+    "trello.defaultList": "5c709043e42e7b7bb5398fa4",
 }

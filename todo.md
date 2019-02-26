@@ -20,7 +20,7 @@
  - [ ] In `zsh`, find a way to get a correct path to `antigen.zsh` and add the path to `~/.zshrc`
  - [ ] Using `nvm`, install the latest version of `Node.js` (`arch 64`).
 - [ ] In `Visual Studio Code`, revert the terminal back to `bash`: 
-  in `Visual Studio Code`'s `settings.js`, uncomment `//"terminal.integrated.shellArgs.windows": "bash"`
+  in `Visual Studio Code`'s `settings.js`, uncomment `//"terminal.grated.shellArgs.windows": "bash"`
 
 <br>
 
@@ -50,7 +50,7 @@
   - [x] Fix word part (text) alignment
 
 
-I'll need to think how to implement various WordPart types (suffiex, stems, etc.) - what properties they will have and how will this/these object be structured in relation to `WordType`.
+- [x] I'll need to think how to implement various WordPart types (suffiex, stems, etc.) - what properties they will have and how will this/these object be structured in relation to `WordType`.
 
 ### Todo: 
 - [x] Pass **all** props of `WordPart` to `Word` to be able to use stem `WordParts`'s `translation` property to render the stem's meaning in English
@@ -71,6 +71,14 @@ I'll need to think how to implement various WordPart types (suffiex, stems, etc.
 - [x] Create a `colors` palette component based on the Material Design color palette that I've created.
 - [x] Style and structure the `WordPart` component to fit the mockup  using the Material-UI `CardContent` and `CardActions` components.
 - [ ] Learn how to and apply: change the mobile appbar's (at `AppBarOld.jsx`) mobile pop-up menu's backgrond color to some hue of `primaryColor`.
+- [ ] Solve size scaling issues of a `Word.jsx` component due to being wide (positioning inside the `App.jsx`'s grid) - might require a change of         
+`WordPart`'s style.
+- [ ] Move the search bar in `AppBarOld.jsx` to the right of the appbar, adjacent to the kebab menu icon.
+- [ ] learn how to and apply: change the color of Ripple effect for the `ButtonBase`s of the suffixes in `SuffixToSelectButton.jsx`.
+- [ ] Integrate a custom scrollbar for `SuffixToModify.jsx`'s `DialogContent`. Check out `npm` package `react-custom-scrollbar`.
+- [ ] Make the `WordPart` cards draggable up-down a bit (on the y-axis) until a critical distance:
+    - Gradiently become more opaque as the near the critical distance (in relation to rest position)
+    - When released at >= critical distance or greater they are removed
 
 
 ### Icons
@@ -78,29 +86,33 @@ I'll need to think how to implement various WordPart types (suffiex, stems, etc.
 - [ ] Create an `Icons` component and export from it multiple icons
 - [ ] In `WordPart`, import multiple icons from `Icons`, put them inside a `div` container and give them (except for last one) a `margin-right`
 
- Create/get icons for:
-- [x] Suffix
-- [x] Stem (word stem)
-- [x] Singular
-- [x] Plural
+ Create/get icons for WordParts:
 
+  WordPart Type:
+  - [x] Suffix
+  - [x] Stem (word stem)
+  
+  Grammatical Number:
+  - [x] Singular
+  - [x] Plural
+  - [ ] Uncountable
 
   Grammatical cases - add as you learn more grammatical cases from the book:
-  - [ ] Nominative (base form) - todo: think if I want an icon for that
+  - [ ] Nominative (base form) - TODO: think if I want an icon for that
   - [ ] Genetive
   - [ ] Accusative
   - [ ] Partitive
   - [ ] Inessive
   - [ ] Elative
-  - [ ] Adessive
+  - [x] Adessive
   - [ ] Ablative
-  - [ ] Allative
+  - [x] Allative
   - [ ] Essive
   - [ ] Translative
   - [ ] Comitative
   - [ ] Instructive
 
-  Maybe add:
+  Maybe add - Grammatical Role:
   - [ ] Verb
   - [ ] Noun
   - [ ] Adjective
