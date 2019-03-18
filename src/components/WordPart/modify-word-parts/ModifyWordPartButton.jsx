@@ -1,22 +1,22 @@
 import React from 'react'
 
 import { withStyles } from "@material-ui/core/styles";
+import classNames from "classnames";
 
 import { primaryColor, secondaryColor } from '../../../style/colors.js';
 
 import IconButton from "@material-ui/core/IconButton";
 import { fade } from "@material-ui/core/styles/colorManipulator";
+
+//#region Icons
 import AddIcon from '@material-ui/icons/Add';
-import Fade from '@material-ui/core/Fade';
-
-import { Hidden } from '@material-ui/core';
-
-import classNames from 'classnames';
+import FindReplace from '@material-ui/icons/FindReplace';
+//#endregion
 
 
 const styles = {
 
-    addWordPartButton__Container: {
+    modifyWordPartButton__Container: {
         height: '100%',
         //width: '48px',
         
@@ -35,7 +35,7 @@ const styles = {
         }
         
     },
-    addWordPartButton: {
+    modifyWordPartButton: {
         marginTop: '-20px',
         padding: '8px',
         borderRadius: '100%',
@@ -46,18 +46,18 @@ const styles = {
         opacity: 1,
         transition: 'opacity 250ms',
     },
-    addWordPartButton__Icon: {
+    modifyWordPartButton__Icon: {
         fill: secondaryColor['main'],
     },
 
-    hideAddWordPartButton: {
+    hideModifyWordPartButton: {
         opacity: 0,
         transition: 'opacity 250ms',
     },
 
 }
 
-class AddWordPartButton extends React.Component {
+class ModifyWordPartButton extends React.Component {
 
     constructor(props) {
         
@@ -94,30 +94,66 @@ class AddWordPartButton extends React.Component {
         
         const { classes } = this.props;
 
-        return (
+        if (this.props.action==='replace') {
+            return (
 
-            <div
-                onMouseEnter={this.onMouseEnterHandler}
-                onMouseLeave={this.onMouseLeaveHandler}
-                className={classes.addWordPartButton__Container}
-            >
-                
-                <IconButton
-                    className={
-                        `${classes.addWordPartButton} ${this.state.isHovered ? '' : classes.hideAddWordPartButton}`
-                    } centerRipple={false}
+                <div
+                    className={classes.modifyWordPartButton__Container}    
+                    onMouseEnter={this.onMouseEnterHandler}
+                    onMouseLeave={this.onMouseLeaveHandler}
+                    
                 >
-                    {<AddIcon className={classes.addWordPartButton__Icon}/>}
-                </IconButton>
-                
-                {this.props.children}
-            </div>
-
-        );
+                    
+                    <IconButton
+                        className={
+                            `${classes.modifyWordPartButton} ${this.state.isHovered ? '' : classes.hideModifyWordPartButton}`
+                        } centerRipple={false}
+                        onClick={this.props.handleClickOpen}
+                    >   
+                        {<FindReplace className={classes.modifyWordPartButton__Icon}/>}
+                        
+                    </IconButton>
+                    
+                    {this.props.children}
+                </div>
+    
+            );
+        }
         
+
+        if (this.props.action==='add') {
+            return (
+
+                <div
+                    onMouseEnter={this.onMouseEnterHandler}
+                    onMouseLeave={this.onMouseLeaveHandler}
+                    className={classes.modifyWordPartButton__Container}
+                >
+                    
+                    <IconButton
+                        className={classNames(
+                            classes.modifyWordPartButton,
+                            this.state.isHovered ? '' : classes.hideModifyWordPartButton
+                        )}
+                        centerRipple={false}
+                        onClick={this.props.handleClickOpen}
+                    >
+                        {<AddIcon className={classes.modifyWordPartButton__Icon}/>}
+                        
+                    </IconButton>
+                    
+                    {this.props.children}
+                </div>
+
+            );
+        }
+
     }
+    
+        
+    
 
 }
 
 
-export default withStyles(styles)(AddWordPartButton);
+export default withStyles(styles)(ModifyWordPartButton);

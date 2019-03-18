@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { withStyles } from "@material-ui/core/styles";
-import { primaryColor, secondaryColor } from "../../style/colors";
+import { primaryColor, secondaryColor } from "../../../style/colors";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -41,7 +41,7 @@ const styles = theme => ({
 
 });
 
-class SuffixToSelectButton extends React.Component {
+class SelectSuffix extends React.Component {
 
     constructor(props) {
       super(props);
@@ -80,4 +80,4 @@ class SuffixToSelectButton extends React.Component {
 
 }
 
-export default withStyles(styles)(SuffixToSelectButton);
+export default withStyles(styles)(SelectSuffix);

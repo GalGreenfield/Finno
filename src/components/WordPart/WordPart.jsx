@@ -9,15 +9,9 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 //#endregion
 
-import ModifyWordPartButton from './modify-word-parts/ModifyWordPartButton';
-
-//import SelectSuffixToModify from './modify-word-parts/SelectSuffixToModify';
+import SelectSuffixToModify from "./modify-word-parts/SelectSuffixToModify";
 
 import Typography from "@material-ui/core/Typography";
-
-/*For the word role*/
-//import Tooltip from "@material-ui/core/Tooltip";
-
 
 import WordPartTypeIcons from './WordPartTypeIcons';
 
@@ -108,7 +102,8 @@ return(
 
   </Card>
 
-  <ModifyWordPartButton action={action}/>
+  
+  <SelectSuffixToModify action={action}/>
 
 </div>
 

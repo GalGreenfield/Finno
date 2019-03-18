@@ -142,3 +142,6 @@
 <!--- 
 ### Production
 --->
+
+### Bugs
+ - [ ] In the `modify-word-parts` components, find where React tries to recognize the `handleClickOpen` prop on a DOM element and fails, and fix it.
