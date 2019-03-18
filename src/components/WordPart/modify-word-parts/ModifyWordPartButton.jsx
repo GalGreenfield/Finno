@@ -94,14 +94,11 @@ class AddWordPartButton extends React.Component {
         
         const { classes } = this.props;
 
-        console.log(this.props.children)
-
         return (
 
             <div
                 onMouseEnter={this.onMouseEnterHandler}
                 onMouseLeave={this.onMouseLeaveHandler}
-                /*className={(this.state.isHovered==true) ? classes.test : classes.addWordPartButton__Container }*/
                 className={classes.addWordPartButton__Container}
             >
                 

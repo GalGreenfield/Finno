@@ -20,6 +20,9 @@ import { ReactComponent as TranslationIcon } from '../../style/icons/stems/trans
 
 //#region Suffix Icons
 import { ReactComponent as SuffixIcon } from '../../style/icons/suffixes/suffix-icon.svg';
+//todo: import as `ReactComponent`s all of the suffixes grammatical cases icons once I have them all
+import { ReactComponent as AllativeIcon } from '../../style/icons/suffixes/allative-icon.svg';
+import { ReactComponent as InessiveIcon } from '../../style/icons/suffixes/inessive-icon.svg';
 //#endregion
 
 import Tooltip from '@material-ui/core/Tooltip';
@@ -135,9 +138,40 @@ function WordPartTypeIcons(props) {
   }
   
   if (props.WordPart__props.wordPartType === 'suffix') {
+
+    //todo: verify if there's a way to dynamically-produce components in React that are produced like all the other comopnents I've declare manually.
+    /*
+    function getWordPartGrammaticalCaseIcon() {
+
+      let grammaticalCase = props.WordPart__props.grammaticalCase;
+
+      let grammatical_cases = [
+        'nominative',
+        'genitive',
+        'accusative',
+        'partitive',    
+        'inessive',
+        'elative',
+        'illative'
+      ];
+      if ( !(grammatical_cases.includes(grammaticalCase)) ) {
+        throw new Error ('Unknown grammatical case!');
+      }
+      else {
+        return (
+          React.createElement(
+            grammaticalCase.charAt(0).toUpperCase() + grammaticalCase.slice(1) + 'Icon',
+            {className: classes.wordPartTypeIcon}
+          )
+        );
+      }
     
-    //TODO return icons based on wordPartType *and* based on the rest of the available properties (grammaticalNumber/grammaticalCase)
+    }
+    */
+
+    
     return (
+
       <div className={classes.wordPartTypeIconsContainer}>
         <Tooltip
             title={props.WordPart__props.wordPartType}
@@ -152,6 +186,15 @@ function WordPartTypeIcons(props) {
           props.WordPart__props.hasOwnProperty('grammaticalNumber')
           ? grammaticalNumberIcon(props.WordPart__props.grammaticalNumber)
           : ''
+        }
+
+        {
+          /*
+          props.WordPart__props.hasOwnProperty('grammaticalCase')
+          ? getWordPartGrammaticalCaseIcon(props.WordPart__props.grammaticalCase)
+            
+          : ''
+          */
         }
 
       </div>

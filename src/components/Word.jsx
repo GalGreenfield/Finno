@@ -2,9 +2,9 @@ import React from "react";
 
 import { withStyles } from "@material-ui/core/styles";
 
-import WordPart from "./WordPart/WordPart.jsx";
+import WordPart from "./WordPart/WordPart";
 
-import deconstructWord from '../word-deconstruction/deconstructWord.js';
+import deconstructWord from '../word-deconstruction/deconstructWord'
 
 /*TODO: build more word construction/deconstruction functions such as `conjugate`
  that conjugates a word based on a given conjugation (that uses grammartical rules)*/
@@ -32,13 +32,11 @@ class Word extends React.Component {
   render() {
 
     const { classes } = this.props;
+
     //Create and populate dynamically `WordPart` component from this.wordParts
     const wordPartsCards = this.wordParts.map(
-
       (wordPartProps, index) => {
-
         return <WordPart {...wordPartProps} key={index} />;
-        
     });
 
     return (
