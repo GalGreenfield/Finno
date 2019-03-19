@@ -19,6 +19,8 @@ import { ReactComponent as InessiveIcon } from '../../../style/icons/suffixes/in
 //#endregion
 import SuffixToSelectButton from './SuffixToSelectButton';
 
+import TextField from '@material-ui/core/TextField';
+
 import Button from "@material-ui/core/Button";
 
 import DialogActions from "@material-ui/core/DialogActions";
@@ -73,6 +75,61 @@ class SelectSuffixToModify extends React.Component {
             action={this.props.action}
             handleClickOpen={this.handleClickOpen}
           />
+
+          <Dialog
+            fullWidth={true}
+            maxWidth='xs'
+        
+            open={this.state.open}
+            onClose={this.handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+
+            <DialogTitle id="alert-dialog-title">
+              Replace stem
+            </DialogTitle>
+
+            <DialogContent>
+
+              <Grid
+                columns={1}
+                rows={1}
+              >
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}        
+                >
+                  <TextField
+                    id="standard-search"
+                    label="Search stem"
+                    type="search"
+                    //className={classes.textField}
+                    //margin="normal"
+                    fullWidth={true}
+                  />
+                </Cell>
+              </Grid>
+
+            </DialogContent>
+
+            <DialogActions>
+
+              <Button onClick={this.handleClose} color="primary">
+                Cancel
+              </Button>
+
+              <Button onClick={this.handleClose} color="primary" autoFocus>
+                Replace
+              </Button>
+
+            </DialogActions>
+
+          </Dialog>
+
         </React.Fragment>
       );
     }
@@ -110,7 +167,6 @@ class SelectSuffixToModify extends React.Component {
                 rows={3}
               >
 
-              
                 <Cell
                   style={{
                     height: 'fit-content',

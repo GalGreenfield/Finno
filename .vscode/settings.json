@@ -13,4 +13,7 @@
 
     "terminal.integrated.shell.windows": "E:/Programming/Git/Installation/bin/bash.exe",
 
+    "editorGutter.background": "#abcdef",
+    "editor.showFoldingControls": "always",
+    "editor.renderIndentGuides": true
 }

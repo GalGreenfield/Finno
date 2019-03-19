@@ -25,7 +25,7 @@ const styles = theme => ({
     flexDirection: 'column',
     '&:hover': {
       backgroundColor: fade(primaryColor['main'], theme.palette.action.hoverOpacity),
-    },
+    }, 
     transition: theme.transitions.create(['background-color'], {
       duration: theme.transitions.duration.short,
     }),
@@ -46,7 +46,24 @@ const styles = theme => ({
     transition: theme.transitions.create(['background-color'], {
       duration: theme.transitions.duration.short,
     }),
-  }
+    /*
+    '&:hover': {
+      backgroundColor: fade(primaryColor['main'], theme.palette.action.hoverOpacity * (1+(0.54/0.14))),
+      transition: theme.transitions.create(['background-color'], {
+        duration: theme.transitions.duration.short,
+      }),
+    },
+    */ 
+    
+  },
+
+  test: {
+    //backgroundColor: primaryColor['main'],
+    backgroundColor: fade(primaryColor['main'], 0.54),
+    transition: theme.transitions.create(['background-color'], {
+      duration: theme.transitions.duration.short,
+    }),
+  },
 
 });
 
@@ -77,6 +94,11 @@ class SelectSuffix extends React.Component {
         <ButtonBase
           onClick={this.handleClick}
           centerRipple={true}
+          TouchRippleProps={{
+            classes: {
+              child: classes.test
+            }
+          }}
           className={classNames(
             classes.suffixIconButton,
             this.state.isSelected ? classes.selected : '',
