@@ -52,7 +52,8 @@
 
 - [x] I'll need to think how to implement various WordPart types (suffiex, stems, etc.) - what properties they will have and how will this/these object be structured in relation to `WordType`.
 
-### Todo: 
+### Todos 
+
 - [x] Pass **all** props of `WordPart` to `Word` to be able to use stem `WordParts`'s `translation` property to render the stem's meaning in English
 - [ ] Decide whether I want to have (a `meaning` prop for stem `WordPart`s and a `type` prop for suffix `WordPart`s) or have a `meaning` prop for both
 - [ ] ~~Decide if I want for for Word to render `Suffix` and other WordParts (specialized classes/components) or render `WordPart` components instead~~
@@ -129,19 +130,35 @@
 
 ## Finnish Deconstruction (App Logic)
 
-  - [ ] Create a list of all consonant gradations (include psuedo-code terms of when they're apply)
-  - [ ] Decide if I'll go with the definition for consonant gradation rules by the book (Finnish: An Essential Grammar) or by Wikipedia
+- [ ] Create a list of all consonant gradations (include psuedo-code terms of when they're apply)
+- [ ] Decide if I'll go with the definition for consonant gradation rules by the book (Finnish: An Essential Grammar) or by Wikipedia
 
+<br>
 
-### Deployment
+## Deployment
 
 - [ ] Deploy the app to [Heroku](https://dashboard.heroku.com/apps/finno/deploy/heroku-git)
 - [ ] When I start needing server functionality, migrate to `Sails.js`. [How to](https://medium.com/@larsbs/how-to-use-react-as-a-template-engine-in-sails-js-bb6b22c7dba6)
 
+<br>
 
 <!--- 
 ### Production
 --->
 
-### Bugs
+## Bugs
+
  - [ ] In the `modify-word-parts` components, find where React tries to recognize the `handleClickOpen` prop on a DOM element and fails, and fix it.
+
+<br>
+
+## Minimal Viable Project goals:
+
+- Be able to deconstruct (preferably) any word in the Finnish language and display its words parts with icons + tooltips for the following properties of each word part:
+  - Word part type - stem/suffix <br>
+  If has grammatical number:
+  - Grammatical number <br>
+  If suffix: <br>
+  - Grammatical case <br>
+  If Stem: <br>
+  - Translation

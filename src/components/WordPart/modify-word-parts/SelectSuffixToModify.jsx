@@ -59,252 +59,261 @@ class SelectSuffixToModify extends React.Component {
     this.setState({ open: false });
   };
 
+  //todo: extract dialogs into independent files, maybe in `modify-word-parts` create a directory `actions` and put the files there 
   render() {
+
     const { classes } = this.props;
 
-    return (
-      <React.Fragment>
-        <ModifyWordPartButton
-          action={this.props.action}
-          handleClickOpen={this.handleClickOpen}
-        />
+    //todo: design a dialog for replacing a stem with a search option
+    if (this.props.action==='replace') {
+      return (
+        <React.Fragment>
 
-        <Dialog
-          fullWidth={true}
-          maxWidth='md'
-      
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
+          <ModifyWordPartButton
+            action={this.props.action}
+            handleClickOpen={this.handleClickOpen}
+          />
+        </React.Fragment>
+      );
+    }
 
-          <DialogTitle id="alert-dialog-title">
-            Select Suffix
-          </DialogTitle>
+    if (this.props.action==='add') {
 
-          <DialogContent>
+      //todo: add an MUI `Badge` to each cell, and put a icon in the `badgeContent` property of the `Badge`
 
-            <Grid
-              gap={'0px'}
-              columns={5}
-              rows={3}
-            >
-            
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
-              
-              <Cell
-                style={{
-                  height: 'fit-content',
-                  justifySelf:'center',
-                  alignSelf: 'center'
-                }}
-                
-              >
-                <SuffixToSelectButton>
-                  <SuffixIcon className={classes.suffixIcon} />
-                </SuffixToSelectButton>
-              </Cell>
+      return (
+        <React.Fragment>
+          <ModifyWordPartButton
+            action={this.props.action}
+            handleClickOpen={this.handleClickOpen}
+          />
 
-            </Grid>
+          <Dialog
+            fullWidth={true}
+            maxWidth='md'
+        
+            open={this.state.open}
+            onClose={this.handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
 
-          </DialogContent>
+            <DialogTitle id="alert-dialog-title">
+              Select Suffix
+            </DialogTitle>
 
-          <DialogActions>
+            <DialogContent>
 
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
-            </Button>
+              <Grid
+                gap={'0px'}
+                columns={5}
+                rows={3}
+              >
 
-            <Button onClick={this.handleClose} color="primary" autoFocus>
-              Add
-            </Button>
+              
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}        
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <AllativeIcon 
+                      className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}               
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}             
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}            
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}              
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}              
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}            
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}              
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}               
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}               
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}               
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}            
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}          
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
+                
+                <Cell
+                  style={{
+                    height: 'fit-content',
+                    justifySelf:'center',
+                    alignSelf: 'center'
+                  }}          
+                >
+                  <SuffixToSelectButton suffixType="Allative">
+                    <SuffixIcon className={classes.suffixIcon} />
+                  </SuffixToSelectButton>
+                </Cell>
 
-          </DialogActions>
+              </Grid>
 
-        </Dialog>
-      </React.Fragment>
-    );
+            </DialogContent>
+
+            <DialogActions>
+
+              <Button onClick={this.handleClose} color="primary">
+                Cancel
+              </Button>
+
+              <Button onClick={this.handleClose} color="primary" autoFocus>
+                Add
+              </Button>
+
+            </DialogActions>
+
+          </Dialog>
+        </React.Fragment>
+      );
+
+    }
+
   }
 }
 

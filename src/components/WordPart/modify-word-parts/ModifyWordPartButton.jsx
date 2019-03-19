@@ -101,7 +101,6 @@ class ModifyWordPartButton extends React.Component {
                     className={classes.modifyWordPartButton__Container}    
                     onMouseEnter={this.onMouseEnterHandler}
                     onMouseLeave={this.onMouseLeaveHandler}
-                    
                 >
                     
                     <IconButton
@@ -110,8 +109,7 @@ class ModifyWordPartButton extends React.Component {
                         } centerRipple={false}
                         onClick={this.props.handleClickOpen}
                     >   
-                        {<FindReplace className={classes.modifyWordPartButton__Icon}/>}
-                        
+                        <FindReplace className={classes.modifyWordPartButton__Icon}/>
                     </IconButton>
                     
                     {this.props.children}
