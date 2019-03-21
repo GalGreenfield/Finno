@@ -81,7 +81,6 @@
     - Gradiently become more opaque as the near the critical distance (in relation to rest position)
     - When released at >= critical distance or greater they are removed
 
-
 ### Icons
 
 - [ ] Create an `Icons` component and export from it multiple icons
@@ -134,6 +133,9 @@
 - [ ] Decide if I'll go with the definition for consonant gradation rules by the book (Finnish: An Essential Grammar) or by Wikipedia
 
 <br>
+
+## Code 
+ - [ ] In __all__ components: check where the `render()` function/content of the function if the component is functional returns a `<div>` as a wrapper, and if a container is not necessary, wrap the content instead with a `React.Fragment`.
 
 ## Deployment
 

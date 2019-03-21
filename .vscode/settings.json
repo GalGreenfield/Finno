@@ -11,9 +11,8 @@
     "trello.token": "f43b0c8cf5dcd1f5f2cccd95329c965a9839633a25efe3b00e713d0f47ac485d",
     "trello.defaultList": "5c709043e42e7b7bb5398fa4",
 
-    "terminal.integrated.shell.windows": "E:/Programming/Git/Installation/bin/bash.exe",
+    "terminal.integrated.shell.windows": "E:/Programming/Git/Installation/bin/bash.exe", 
 
-    "editorGutter.background": "#abcdef",
     "editor.showFoldingControls": "always",
     "editor.renderIndentGuides": true
 }

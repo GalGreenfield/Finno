@@ -27,6 +27,13 @@ class Word extends React.Component {
     super(props);
     this.text = props.text;
     this.wordParts = deconstructWord(props.text);
+    this.stem = this.wordParts.find(
+      (wordPart) => {
+        if (wordPart.wordPartType==='stem') {
+          return wordPart
+        }
+      }
+    )
   }
 
   render() {
