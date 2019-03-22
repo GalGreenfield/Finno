@@ -8,5 +8,5 @@ export default function deconstructWord(word) {
       ];
       return wordParts;
     }
-    else return `Requested word ${word} is not supported at the moment.`;
+    else return `Requested word ${word} is not supported at the moment.`; //maybe relplace the string with throwing a new Error
 }

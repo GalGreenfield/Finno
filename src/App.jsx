@@ -1,6 +1,10 @@
 import React from "react";
 
-// import Grid from "@material-ui/core/Grid";
+//#region State Management with Redux
+import { Provider } from 'react-redux';
+import store from './state-management/store'
+//#endregion
+
 
 import AppBarOld from "./components/AppBarOld.jsx";
 
@@ -15,6 +19,9 @@ import { Grid, Cell } from 'styled-css-grid';
 export default function App() {
 
   return (
+    
+    <Provider store={store}>
+
     <div className="App"
       style={{
         height: '100vh'
@@ -45,6 +52,10 @@ export default function App() {
 
       </Grid>
     </div>
+
+    </Provider>
+    
+    
   );
    
 }

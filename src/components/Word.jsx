@@ -34,6 +34,14 @@ class Word extends React.Component {
         }
       }
     )
+    this.state = {
+      wordParts: this.wordParts,
+      stem: this.stem,
+
+      // I put the stem of the word as the first element of wordParts (in deconstructWord), but I should give them an `order_in_word` property which can change (in th case of suffixes), so using splice(1) here to get it should eventually be changed, and I could also remove this.stem from wordParts to get the rest of the wordParts
+      //todo: change it when I have an `order_in_word` property for wordPart elements (`deconstructWord` should create them with that and assign values to them with that. Also, WordPart components should probably have that prop)
+      suffixes: this.wordParts.slice(1)
+    }
   }
 
   render() {
@@ -53,4 +61,5 @@ class Word extends React.Component {
   }
 }
 
+//todo: Figure out a way to export the state of `Word` such that Redux could use it for the `initial_state` of the `store`.
 export default withStyles(styles)(Word);

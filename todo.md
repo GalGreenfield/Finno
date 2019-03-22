@@ -49,10 +49,37 @@
   - `type` (stem, suffix, etc.)
   - [x] Fix word part (text) alignment
 
-
 - [x] I'll need to think how to implement various WordPart types (suffiex, stems, etc.) - what properties they will have and how will this/these object be structured in relation to `WordType`.
 
-### Todos 
+### State Management (with Redux)
+
+#### Keep reading on Redux, and change once I have a better understanding (correct mistakes if there are any):
+
+#### Things I'll need to do to update a word:
+
+For updating the `stem` property:
+- [ ] Create a an action with properties:
+  [ ] wordPartType: `stem` (maybe I need to update **here** all the stem's properties (`transation`, `grammatical_number`, etc.?))
+- [ ] Create a reducer that:
+  - [ ] Takes the submitted text (stem to replace) from the stem replacement dialog search
+  - [ ] ~~Calls the action~~ it's done in the Redux store
+  - [ ] Updates the action's state withe the submitted text's value
+
+For Updating suffix(es):
+- [ ] Create a an action that:
+  - [ ] Saves the order of selection (might require a state of its own)
+  - [ ] Outputs the order of selection of suffixes and the suffix object to add
+- [ ] Create an reducer that:
+  - [ ] Takes the first-selected suffix
+  - [ ] Adds that suffix to the end of the `Word`
+  
+  Note: check if it re-renders the word. If it doesn't, check if I need to re-render it somehow, maybe with the `Word` components' `componentDidMount()` function.
+
+  
+#### Todo:
+- [ ] Figure out a way to export the state of `Word` such that Redux could use it for the `initial_state` of the `store` while still exporting `Word` with  JSS's `withStyles` (so JSS could style it).
+
+## Todos 
 
 - [x] Pass **all** props of `WordPart` to `Word` to be able to use stem `WordParts`'s `translation` property to render the stem's meaning in English
 - [ ] Decide whether I want to have (a `meaning` prop for stem `WordPart`s and a `type` prop for suffix `WordPart`s) or have a `meaning` prop for both
