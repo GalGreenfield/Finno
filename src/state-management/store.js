@@ -10,7 +10,7 @@ console.log(store.getState());
 
 const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
-store.dispatch(replaceStem("I'm a stem")) //updates the stem successfully
+//store.dispatch(replaceStem("I'm a stem")) //updates the stem successfully
 //store.dispatch(addSuffix("I'm a suffix that was added")) //adds a suffix succesfully
 
 export default store;

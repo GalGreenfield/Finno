@@ -19,14 +19,8 @@ import Word from '../components/Word';
 I'm defining an initial deconstruction of the "autoissa" word example (no other word is supported at the moment) just to see how reducers work
 I haven't decided yet on an initial state for the app/`Word`.
 */
-
-/*
 const initial_state = {
   wordParts: deconstructWord("autoissa")
-}
-*/
-const initial_state = {
-  ...Word
 }
 
 //todo: since `word.stem` and `word.suffixes` are linked to word.wordParts`, think how I update `wordParts` when either the `stem` or `suffixes` are updated
