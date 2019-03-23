@@ -58,6 +58,8 @@
 #### Things I'll need to do to update a word:
 
 For updating the `stem` property:
+
+
 - [ ] Create a an action with properties:
   [ ] wordPartType: `stem` (maybe I need to update **here** all the stem's properties (`transation`, `grammatical_number`, etc.?))
 - [ ] Create a reducer that:
@@ -74,6 +76,16 @@ For Updating suffix(es):
   - [ ] Adds that suffix to the end of the `Word`
   
   Note: check if it re-renders the word. If it doesn't, check if I need to re-render it somehow, maybe with the `Word` components' `componentDidMount()` function.
+
+- [ ] Make the store and reducers work with the following store state structure:
+  ```
+    store: {
+      word: {
+        stem
+        wordParts
+      }
+    }
+  ```
 
   
 #### Todo:

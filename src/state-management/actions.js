@@ -25,6 +25,6 @@ export function replaceStem(stem) {
 export function addSuffix(suffix) {
   return {
     type: action_types.ADD_SUFFIX,
-    suffix //not sure if this is the data of the suffix_ in the state tree or the one I want to update with
+    suffix //not sure if this is the data of the suffix in the state tree, or the one I want to add to a the `Word`'s `wordParts` array property.
   }
 }
