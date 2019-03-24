@@ -10,9 +10,13 @@ import Word from '../components/Word';
 I'm defining an initial deconstruction of the "autoissa" word example (no other word is supported at the moment) just to see how reducers work
 I haven't decided yet on an initial state for the app/`Word`.
 */
-var initial_state = {
+const initial_state = {
   word: {
-    wordParts: deconstructWord("autoissa"),
+    //wordParts: deconstructWord("autoissa"),
+    wordParts: [
+      { wordPartType: 'stem', text: 'test_stem '},
+      { wordPartType: 'suffix', text: 'test_suffix '}
+    ],
     get stem() {
       return this.wordParts[0]
     }
@@ -26,8 +30,6 @@ function app(state = initial_state, action) {
 
   //todo: Maybe change the `switch` and its `case`s to `if`s and `else`s (maybe `else if`s) - google comparison of `switch` vs. `if` to re-read some comparison
   switch (action.type) {
-
-    //todo: consider replacing Object.assign here with `spread()`: https://redux.js.org/recipes/using-object-spread-operator
 
     case action_types.REPLACE_STEM:
       return {
@@ -48,6 +50,4 @@ function app(state = initial_state, action) {
 
 }
 
-//const app = word; //if more reducers are needed to be added, change the definition of `app` to use Redux's `combineReducers` function.
-
-export default app ;
+export { app, initial_state };

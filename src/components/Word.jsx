@@ -37,12 +37,12 @@ class Word extends React.Component {
     super(props);
     this.text = props.text;
     
-    //needs to get the value from the store instead
+    //needs to get the value from the store instead  
     this.wordParts = deconstructWord(this.text)
     
     this.state = {
       wordParts: this.wordParts,
-      stem: this.stem,
+      stem: this.stem,  
     }
   }
 
@@ -55,15 +55,6 @@ class Word extends React.Component {
       }
     )
   }
-
-  //suffxies - I don't think I really need that
-  /*
-  get suffixes () { 
-    return this.wordParts.filter(
-      wordPart => wordPart.type==='suffix'
-    );
-  }
-  */
 
   render() {
 
@@ -87,26 +78,18 @@ class Word extends React.Component {
 //is suppose to map the word state object in the Redux store to the Word component
 const mapStateToProps = state => {
   // eslint-disable-next-line default-casec
-  return state
-}
-
-const mapDispatchToProps = dispatch => {
-  // eslint-disable-next-line default-case
-  switch(dispatch) {
-    case action_types.REPLACE_STEM:
-      return {
-        stem: id => {
-          dispatch(replaceStem(id))
-        }
-      }
-    case action_types.ADD_SUFFIX:
-      return {
-        wordParts: wordParts => {
-          dispatch(addSuffix);
-        }
-      }
+  return {
+    word: state.word
   }
 }
+
+const mapDispatchToProps = dispatch => (
+  {
+    replaceStem: (stem) => dispatch(replaceStem(stem)),
+    addSuffix: (suffix) => dispatch(addSuffix(suffix))
+  }
+)
+
 
 // eslint-disable-next-line no-unused-vars
 const WordStoreSubscriber = connect(
