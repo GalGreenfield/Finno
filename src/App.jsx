@@ -22,36 +22,36 @@ export default function App() {
     
     <Provider store={store}>
 
-    <div className="App"
-      style={{
-        height: '100vh'
-      }}
-    >
-      <Grid style={{
-          height: 'inherit'
+      <div className="App"
+        style={{
+          height: '100vh'
         }}
-        gap={'0px'}
-        columns={5}
-        rows={3}
       >
-        <Cell area={'1 / 1 / 1 / 6'}>
-          <AppBarOld />
-        </Cell>
-
-        <Cell
-          area={'2 / 2 / 2 / 5'}
-          style={{
-            height: 'fit-content',
-            justifySelf:'center',
-            alignSelf: 'center'
-            }}
-          width={1}
+        <Grid style={{
+            height: 'inherit'
+          }}
+          gap={'0px'}
+          columns={5}
+          rows={3}
         >
-          <Word text="autoissa" />
-        </Cell>
+          <Cell area={'1 / 1 / 1 / 6'}>
+            <AppBarOld />
+          </Cell>
 
-      </Grid>
-    </div>
+          <Cell
+            area={'2 / 2 / 2 / 5'}
+            style={{
+              height: 'fit-content',
+              justifySelf:'center',
+              alignSelf: 'center'
+              }}
+            width={1}
+          >
+            <Word text="autoissa" />
+          </Cell>
+
+        </Grid>
+      </div>
 
     </Provider>
     

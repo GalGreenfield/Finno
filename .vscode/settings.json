@@ -21,4 +21,16 @@
     "prettier.useTabs": true,
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.enableBell": true,
+
+    "maptz.regionfolder": {
+        "[javascriptreact]": {                           //Language selector
+            "foldStart": "/* #region [NAME] */",         //Text inserted at the start of the fold.
+            "foldEnd": "/* #endregion */",               //Text inserted at the end of the fold
+            "foldStartRegex": "[\\s]*#region[\\s]*(.*)", //Regex used to find fold start text.
+            "foldEndRegex": "[\\s]*#endregion",          //Regex used to find fold end text.
+                                                         //Use the `[NAME]` placeholder to indicate
+                                                         //where the cursor should be placed after insertion
+            
+      }
+    }
 }

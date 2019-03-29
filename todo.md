@@ -55,7 +55,7 @@
 
 #### Keep reading on Redux, and change once I have a better understanding (correct mistakes if there are any):
 
-#### Things I'll need to do to update a word:
+#### Things I'll need to do to update a `Word`:
 
 For updating the `stem` property:
 
@@ -65,7 +65,7 @@ For updating the `stem` property:
 - [ ] Create a reducer that:
   - [ ] Takes the submitted text (stem to replace) from the stem replacement dialog search
   - [ ] ~~Calls the action~~ it's done in the Redux store
-  - [ ] Updates the action's state withe the submitted text's value
+  - [ ] Updates the action's state with the the submitted text's value
 
 For Updating suffix(es):
 - [ ] Create a an action that:
@@ -73,20 +73,23 @@ For Updating suffix(es):
   - [ ] Outputs the order of selection of suffixes and the suffix object to add
 - [ ] Create an reducer that:
   - [ ] Takes the first-selected suffix
-  - [ ] Adds that suffix to the end of the `Word`
+  - [x] Adds that suffix to the end of the `Word`
   
   Note: check if it re-renders the word. If it doesn't, check if I need to re-render it somehow, maybe with the `Word` components' `componentDidMount()` function.
 
-- [ ] Make the store and reducers work with the following store state structure:
+- [x] Make the store and reducers work with the following store state structure:
   ```
     store: {
       word: {
-        stem
+        stem,
         wordParts
       }
     }
   ```
 
+#### Desired dynamic app behavior with Redux - progress:
+- [x] The `Word` component is initialized with the initial state of the Redux store
+- [ ] The `Word` component gets re-rendered on change of the properties of the store it uses (by actions getting dispatched)
   
 #### Todo:
 - [ ] Figure out a way to export the state of `Word` such that Redux could use it for the `initial_state` of the `store` while still exporting `Word` with  JSS's `withStyles` (so JSS could style it).

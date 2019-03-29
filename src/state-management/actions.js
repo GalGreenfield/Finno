@@ -4,6 +4,7 @@
 //#region Action Types
 const REPLACE_STEM = "REPLACE_STEM";
 const ADD_SUFFIX = "ADD_SUFFIX"
+
 export const action_types = {
   'REPLACE_STEM': REPLACE_STEM,
   'ADD_SUFFIX': ADD_SUFFIX
@@ -12,7 +13,7 @@ export const action_types = {
 
 //#region Action Creators
 
-//action to replace stem
+//action creator to replace stem
 export function replaceStem(stem) {
 
   return {  
@@ -21,7 +22,7 @@ export function replaceStem(stem) {
   }
 }
 
-//action to add suffix
+//action creator to add suffix
 export function addSuffix(suffix) {
   return {
     type: action_types.ADD_SUFFIX,

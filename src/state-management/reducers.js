@@ -8,14 +8,14 @@ import Word from '../components/Word';
 
 /*
 I'm defining an initial deconstruction of the "autoissa" word example (no other word is supported at the moment) just to see how reducers work
-I haven't decided yet on an initial state for the app/`Word`.
+I haven't decided yet on an initial state for the whole app or just specifically for the `Word` that's presented in the middle of the screen.
 */
 const initial_state = {
   word: {
     //wordParts: deconstructWord("autoissa"),
     wordParts: [
-      { wordPartType: 'stem', text: 'test_stem '},
-      { wordPartType: 'suffix', text: 'test_suffix '}
+      { wordPartType: 'stem', text: 'test_stem' },
+      { wordPartType: 'suffix', text: 'test_suffix' }
     ],
     get stem() {
       return this.wordParts[0]
