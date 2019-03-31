@@ -8,10 +8,7 @@ import WordPart from "./WordPart/WordPart";
 
 //#region Redux->Component Mapping Imports
 import { connect } from "react-redux";
-import {
-	replaceStem,
-	addSuffix,
-} from "../state-management/actions";
+import { replaceStem, addSuffix } from "../state-management/actions";
 import deconstructWord from "../word-deconstruction/deconstructWord";
 //#endregion
 
@@ -32,34 +29,18 @@ const styles = {
 
 //to do: modify based on the `TODO.md` specifications
 class Word extends React.Component {
-	constructor(props) {
+	// #region constructor - commented out
+	
+	 constructor(props) {
 		super(props);
-		
-		//need to eventually get it from the Redux store, that it will be inserted into via the word search form input in the appbar
-		this.text = this.props.text;
-
-		//needs to get the value from the store instead
-		//this.wordParts = deconstructWord(this.text)
-		
-		/* console.log(`Word.props:`)
-		console.log(this.props); */
-
-		// this.wordParts = this.props.wordParts;
-
-    // #region might not be needed */
-    
-		/* this.state = {
-			wordParts: this.wordParts,
-			stem: this.stem,
-    } */
-    
-		// #endregion
-	}
+	 }
+	
 
 	/*
   Maybe I should get it from the store? Although the stem is always an element of wordParts. Is this unecessary?
   It could be useful for referencing, though, compared to accessing it via wordParts every time I need a word's stem.
   */
+ 
 	/* get stem() {
 		return this.wordParts.find(wordPart => {
 			if (wordPart.wordPartType === "stem") {
@@ -67,6 +48,7 @@ class Word extends React.Component {
 			}
 		});
 	} */
+
 
 	render() {
 		const { classes } = this.props;
@@ -76,27 +58,25 @@ class Word extends React.Component {
 			return <WordPart {...wordPartProps} key={index} />;
 		});
 
-		return (
-			<div className={classes.word}>
-				{wordPartsCards}
-			</div>
-		);
+		return <div className={classes.word}>{wordPartsCards}</div>;
 	}
 
-	componentWillReceiveProps() {
+	// is called but nextProps is sent as undefined
+	/* componentWillReceiveProps(nextProps) {
+		console.log('nextProps:');
+		console.log(nextProps);
+		this.props=nextProps;
 		this.render();
 	}
-
-	 
+	*/ 
 }
 
 //Redux mapStateToProps
-
 //is suppose to map the word state object in the Redux store to the Word component
-const mapStateToProps = store_state => {
+const mapStateToProps = (store_state, ownProps) => {
 	// eslint-disable-next-line default-casec
-	
-	console.log('store_state.word');
+
+	console.log("store_state.word");
 	console.log(store_state.word);
 
 	return store_state.word;

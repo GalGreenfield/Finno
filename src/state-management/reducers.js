@@ -33,9 +33,6 @@ function allReducers(store_state = initial_store_state, action) {
 
     case action_types.REPLACE_STEM:
 
-    //var current_state = store_state;
-    //current_state.word.stem = action.stem;
-
       return {
         ...store_state,
         word: {
