@@ -29,56 +29,37 @@ const styles = {
 
 //to do: modify based on the `TODO.md` specifications
 class Word extends React.Component {
-	// #region constructor - commented out
-	
-	 constructor(props) {
+	// #region constructor - might not be necessary
+
+	constructor(props) {
 		super(props);
-	 }
-	
+	}
 
-	/*
-  Maybe I should get it from the store? Although the stem is always an element of wordParts. Is this unecessary?
-  It could be useful for referencing, though, compared to accessing it via wordParts every time I need a word's stem.
-  */
- 
-	/* get stem() {
-		return this.wordParts.find(wordPart => {
-			if (wordPart.wordPartType === "stem") {
-				return wordPart;
-			}
-		});
-	} */
-
+	get stem() {
+		return this.props.wordParts[0]; //In Finnish, the stem is always the first word part of word
+	}
 
 	render() {
+
+		console.log(this.stem);
+
 		const { classes } = this.props;
 
-		////Create and populate dynamically `WordPart` component from this.wordParts
+		//Create and populate dynamically `WordPart` component from this.props.wordParts
 		const wordPartsCards = this.props.wordParts.map((wordPartProps, index) => {
 			return <WordPart {...wordPartProps} key={index} />;
 		});
 
-		return <div className={classes.word}>{wordPartsCards}</div>;
+		return (
+			<div className={classes.word}>
+				{wordPartsCards}
+			</div>
+		);
 	}
-
-	// is called but nextProps is sent as undefined
-	/* componentWillReceiveProps(nextProps) {
-		console.log('nextProps:');
-		console.log(nextProps);
-		this.props=nextProps;
-		this.render();
-	}
-	*/ 
 }
 
-//Redux mapStateToProps
-//is suppose to map the word state object in the Redux store to the Word component
+/* #region Connect Component to the Redux Store */
 const mapStateToProps = (store_state, ownProps) => {
-	// eslint-disable-next-line default-casec
-
-	console.log("store_state.word");
-	console.log(store_state.word);
-
 	return store_state.word;
 };
 
@@ -89,12 +70,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	};
 };
 
-// eslint-disable-next-line no-unused-vars
 const WordStoreSubscriber = connect(
 	mapStateToProps,
 	mapDispatchToProps,
 )(Word);
 
+/* #endregion */
 //todo: add a propType for `stem` and `wordParts`
 
 //todo: Figure out a way to export the state of `Word` such that Redux could use it for the `initial_state` of the `store`.

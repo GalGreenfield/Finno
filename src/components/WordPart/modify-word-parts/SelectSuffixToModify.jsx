@@ -95,7 +95,8 @@ class SelectSuffixToModify extends React.Component {
               <Grid
                 columns={1}
                 rows={1}
-              >
+              > 
+
                 <Cell
                   style={{
                     height: 'fit-content',

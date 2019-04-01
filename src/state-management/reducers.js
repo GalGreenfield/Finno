@@ -10,15 +10,24 @@ I haven't decided yet on an initial store_state for the whole app or just specif
 */
 const initial_store_state = {
   word: {
-    //wordParts: deconstructWord("autoissa"),
-    wordParts: [
+    wordParts: deconstructWord("autoissa"),
+    /* wordParts: [
       { wordPartType: 'stem', text: 'test_stem' },
       { wordPartType: 'suffix', text: 'test_suffix' }
-    ],
+    ], */
+    /* get stem() {
+      this.wordParts.find(
+        wordPart => {
+          if (wordPart.wordPartType==='stem') {
+            return wordPart;
+          }
+        }
+      )
+    } */
     /* get stem() {
       return this.wordParts[0]
     }, */
-    stem: { wordPartType: 'stem', text: 'test_stem' }
+    
     
   }
 }
@@ -36,10 +45,9 @@ function allReducers(store_state = initial_store_state, action) {
       return {
         ...store_state,
         word: {
-          wordParts: store_state.word.wordParts,
-          stem: action.stem
+          wordParts: [action.stem, ...store_state.word.wordParts.slice(1)],
         }
-      }
+      };
       
     case action_types.ADD_SUFFIX:
     return {

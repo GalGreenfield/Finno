@@ -20,30 +20,33 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-console.log(`Initial Redux store state:`);
-console.log(store.getState());
-
-//log any change to the store
+/*//log any change to the store
 const unsubscribe = store.subscribe(() => console.log(store.getState()))
-
-//doesn't updates the stem successfully
- store.dispatch(
-  replaceStem(
-    { wordPartType: 'stem', text: 'test_stem_2' }
-  )
-); 
-
-//console.log(store.getState());
+*/
 
 //adds a suffix succesfully
-/* #region  Add a test */
+/* #region  Add a test suffix */
 store.dispatch(
-  addSuffix({
-    wordPartType: 'suffix',
-    text: 'test_suffix_2'
-  })
+  addSuffix(
+    {
+      wordPartType: 'suffix',
+      text: 'kin'
+    }
+  )
 );
 /* #endregion */
+
+//updates the stem succesfully
+store.dispatch(
+  replaceStem(
+    { 
+      wordPartType: 'stem',
+      text: 'kirja'
+    }
+  )
+);
+
+//console.log(store.getState());
 
 
 export default store;

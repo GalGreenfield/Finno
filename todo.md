@@ -59,30 +59,31 @@
 
 For updating the `stem` property:
 
-
-- [ ] Create a an action with properties:
-  [ ] wordPartType: `stem` (maybe I need to update **here** all the stem's properties (`transation`, `grammatical_number`, etc.?))
 - [ ] Create a reducer that:
-  - [ ] Takes the submitted text (stem to replace) from the stem replacement dialog search
-  - [ ] ~~Calls the action~~ it's done in the Redux store
-  - [ ] Updates the action's state with the the submitted text's value
+  - [x] Updates the stem from a dispatch
+  - [ ] Takes the submitted text (stem to replace) from the stem replacement dialog search and updates the stem
 
 For Updating suffix(es):
 - [ ] Create a an action that:
   - [ ] Saves the order of selection (might require a state of its own)
   - [ ] Outputs the order of selection of suffixes and the suffix object to add
 - [ ] Create an reducer that:
+  - [ ] Uses a single suffix from an action dispatch
   - [ ] Takes the first-selected suffix
   - [x] Adds that suffix to the end of the `Word`
-  
-  Note: check if it re-renders the word. If it doesn't, check if I need to re-render it somehow, maybe with the `Word` components' `componentDidMount()` function.
 
 - [x] Make the store and reducers work with the following store state structure:
   ```
     store: {
       word: {
-        stem,
-        wordParts
+        wordParts: [
+          0: { wordPartType: 'stem', ... } //stem
+          //If inserted - suffixes:
+          1: { wordPartType: 'suffix', ... } //suffix
+          2: { wordPartType: 'suffix', ... } //suffix
+          ⋮
+        ]
+
       }
     }
   ```

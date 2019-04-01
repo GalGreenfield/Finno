@@ -106,7 +106,8 @@ class ModifyWordPartButton extends React.Component {
                     <IconButton
                         className={
                             `${classes.modifyWordPartButton} ${this.state.isHovered ? '' : classes.hideModifyWordPartButton}`
-                        } centerRipple={false}
+                        }
+                        centerRipple={false}
                         onClick={this.props.handleClickOpen}
                     >   
                         <FindReplace className={classes.modifyWordPartButton__Icon}/>
