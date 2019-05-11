@@ -20,10 +20,6 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-/*//log any change to the store
-const unsubscribe = store.subscribe(() => console.log(store.getState()))
-*/
-
 //adds a suffix succesfully
 /* #region  Add a test suffix */
 store.dispatch(
@@ -45,8 +41,5 @@ store.dispatch(
     }
   )
 );
-
-//console.log(store.getState());
-
 
 export default store;

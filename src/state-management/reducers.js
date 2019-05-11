@@ -1,8 +1,9 @@
-import { action_types } from './actions'
+import { combineReducers } from 'redux';
+
+import { action_types } from './actions';
+import { reducer as formReducer } from 'redux-form';
 
 import deconstructWord from '../word-deconstruction/deconstructWord';
-
-import Word from '../components/Word';
 
 /*
 I'm defining an initial deconstruction of the "autoissa" word example (no other word is supported at the moment) just to see how reducers work
@@ -32,9 +33,7 @@ const initial_store_state = {
   }
 }
 
-
-//todo: since `word.stem` and `word.suffixes` are linked to word.wordParts`, think how I update `wordParts` when either the `stem` or `suffixes` are updated
-//reducer function
+//maybe change its name once I have more reducers with more clear roles
 function allReducers(store_state = initial_store_state, action) {
 
   //todo: Maybe change the `switch` and its `case`s to `if`s and `else`s (maybe `else if`s) - google comparison of `switch` vs. `if` to re-read some comparison
@@ -64,5 +63,10 @@ function allReducers(store_state = initial_store_state, action) {
   }
 
 }
+
+const rootReducer = combineReducers({
+  allReducers: allReducers,
+  form: formReducer
+}); 
 
 export { allReducers, initial_store_state };

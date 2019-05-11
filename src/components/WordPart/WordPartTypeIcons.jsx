@@ -96,7 +96,7 @@ function WordPartTypeIcons(props) {
         >
           Uncountable //TODO: replace with icon
         </Tooltip>
-      );
+      );  
     }
   }
 

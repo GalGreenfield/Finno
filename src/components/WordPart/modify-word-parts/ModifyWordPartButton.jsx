@@ -74,6 +74,7 @@ class ModifyWordPartButton extends React.Component {
     onMouseEnterHandler() {
         this.setState(
             {isHovered: true},
+            //todo: find out if this is necessary, and if it's not, remove it
             () => {
                 //console.log(this.state.isHovered);
             }
@@ -83,6 +84,7 @@ class ModifyWordPartButton extends React.Component {
     onMouseLeaveHandler() {
         this.setState(
             {isHovered: false},
+            //todo: find out if this function is necessary, and if it's not, remove it
             () => {
                 //console.log(this.state.isHovered);
             }
@@ -128,7 +130,7 @@ class ModifyWordPartButton extends React.Component {
                     onMouseLeave={this.onMouseLeaveHandler}
                     className={classes.modifyWordPartButton__Container}
                 >
-                    
+
                     <IconButton
                         className={classNames(
                             classes.modifyWordPartButton,
@@ -137,10 +139,9 @@ class ModifyWordPartButton extends React.Component {
                         centerRipple={false}
                         onClick={this.props.handleClickOpen}
                     >
-                        {<AddIcon className={classes.modifyWordPartButton__Icon}/>}
-                        
+                        {<AddIcon className={classes.modifyWordPartButton__Icon}/>}       
                     </IconButton>
-                    
+
                     {this.props.children}
                 </div>
 
@@ -148,9 +149,6 @@ class ModifyWordPartButton extends React.Component {
         }
 
     }
-    
-        
-    
 
 }
 

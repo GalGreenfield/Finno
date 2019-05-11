@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 
 import { primaryColor, secondaryColor } from '../style/colors.js';
 
-const styles = {
+const styles = theme => ({
   root: {
     flexGrow: 1
   },
@@ -16,7 +16,7 @@ const styles = {
     backgroundColor: primaryColor['main']
   }
   
-};
+});
 
 function SimpleAppBar(props) {
   const { classes } = props;

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { withStyles } from "@material-ui/core/styles";
 import classNames from 'classnames';
@@ -57,14 +58,6 @@ const styles = theme => ({
     
   },
 
-  test: {
-    //backgroundColor: primaryColor['main'],
-    backgroundColor: fade(primaryColor['main'], 0.54),
-    transition: theme.transitions.create(['background-color'], {
-      duration: theme.transitions.duration.short,
-    }),
-  },
-
 });
 
 class SelectSuffix extends React.Component {
@@ -115,5 +108,10 @@ class SelectSuffix extends React.Component {
     }
 
 }
+
+SelectSuffix.propTypes = {
+  //maybe change later the value to instanceOf an array of all suffix types I'll have in the app (need to have a list of them for that)
+  suffixType: PropTypes.string.isRequired
+};
 
 export default withStyles(styles)(SelectSuffix);

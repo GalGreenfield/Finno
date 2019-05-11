@@ -14,9 +14,10 @@ import SelectSuffixToModify from "./modify-word-parts/SelectSuffixToModify";
 import Typography from "@material-ui/core/Typography";
 
 import WordPartTypeIcons from './WordPartTypeIcons';
+import { oneOf } from "prop-types";
 
 
-const styles = {
+const styles = theme => ({
 
   WordPart__card__container: {
     display: 'flex',
@@ -57,60 +58,72 @@ const styles = {
     display: 'flex',
   },
 
-};
+});
 
-function WordPart(props) {
-
-  function getModifyWordPartActionType() {
-    var action = '';
-    if (props.wordPartType==='suffix') {
-      return action='add';
-    }
-    if (props.wordPartType==='stem') {
-      return action='replace';
-    }
-    else {
-      throw new Error('Unsuppored word part type'); //I expect this to never be executed.
-    }
+class WordPart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.wordPartType = this.props.wordPartType;
+    this.getModifyWordPartActionType = this.getModifyWordPartActionType.bind(this);
+    this.modifyAction = this.getModifyWordPartActionType();
   }
 
-  const { classes } = props;
+  getModifyWordPartActionType() {
+    let modifyAction = '';
 
-  const action = getModifyWordPartActionType();
+    if (this.wordPartType === 'suffix') {
+      return modifyAction = 'add';
+    }
 
-return(
+    if (this.props.wordPartType === 'stem') {
+      return modifyAction = 'replace';
+    }
+
+  }
+
+  render() {
   
-  <div className={classes.WordPart__card__container}>
+    const { classes } = this.props;
 
-  <Card className={classes.WordPart} key={props.key}>
+    return (
+      <div className={classes.WordPart__card__container}>
 
-    <CardContent className={classes.WordPart__text__container}>
-    
-      <Typography
-        className={classes.WordPart__text}
-        color="textPrimary"
-        align="center"
-      >
-        {props.text}
-      </Typography>
+        <Card
+          className={classes.WordPart}
+          key={this.props.key}
+        >
 
-    </CardContent>
-    
-    <CardActions disableActionSpacing={true} className={classes.WordPart__role__container}>
-      <WordPartTypeIcons WordPart__props={props}/>
-    </CardActions>
+          <CardContent className={classes.WordPart__text__container}>
+          
+            <Typography
+              className={classes.WordPart__text}
+              color="textPrimary"
+              align="center"
+            >  
+              {this.props.text}
+            </Typography>
 
-  </Card>
+          </CardContent>
+          
+          <CardActions
+            disableActionSpacing={true}
+            className={classes.WordPart__role__container}
+          >
+            <WordPartTypeIcons WordPart__props={this.props} />
+          </CardActions>
 
-  
-  <SelectSuffixToModify action={action}/>
+        </Card>
 
-</div>
+        <SelectSuffixToModify action={this.modifyAction} />
 
- );
- 
+      </div>
+    );
+  }
 
 }
 
+WordPart.propTypes = {
+  wordPartType: oneOf(['stem','suffix']).isRequired,
+};
 
 export default withStyles(styles)(WordPart);

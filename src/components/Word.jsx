@@ -9,7 +9,6 @@ import WordPart from "./WordPart/WordPart";
 //#region Redux->Component Mapping Imports
 import { connect } from "react-redux";
 import { replaceStem, addSuffix } from "../state-management/actions";
-import deconstructWord from "../word-deconstruction/deconstructWord";
 //#endregion
 
 /*TODO: build more word construction/deconstruction functions such as `conjugate`
@@ -31,9 +30,7 @@ const styles = {
 class Word extends React.Component {
 	// #region constructor - might not be necessary
 
-	constructor(props) {
-		super(props);
-	}
+	
 
 	get stem() {
 		return this.props.wordParts[0]; //In Finnish, the stem is always the first word part of word
