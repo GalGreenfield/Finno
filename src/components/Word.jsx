@@ -11,9 +11,6 @@ import { connect } from "react-redux";
 import { replaceStem, addSuffix } from "../state-management/actions";
 //#endregion
 
-/*TODO: build more word construction/deconstruction functions such as `conjugate`
- that conjugates a word based on a given conjugation (that uses grammartical rules)*/
-
 const styles = {
 	word: {
 		display: "flex",
@@ -28,9 +25,6 @@ const styles = {
 
 //to do: modify based on the `TODO.md` specifications
 class Word extends React.Component {
-	// #region constructor - might not be necessary
-
-	
 
 	get stem() {
 		return this.props.wordParts[0]; //In Finnish, the stem is always the first word part of word
@@ -38,14 +32,16 @@ class Word extends React.Component {
 
 	render() {
 
-		console.log(this.stem);
-
 		const { classes } = this.props;
 
 		//Create and populate dynamically `WordPart` component from this.props.wordParts
-		const wordPartsCards = this.props.wordParts.map((wordPartProps, index) => {
-			return <WordPart {...wordPartProps} key={index} />;
-		});
+		const wordPartsCards = this.props.wordParts.map(
+			(wordPartProps, index) => {
+				return (
+					<WordPart key={index} {...wordPartProps} />
+				);
+			}
+		);
 
 		return (
 			<div className={classes.word}>

@@ -1,3 +1,4 @@
+/* #region Imports */
 import {
   createStore
 } from 'redux';
@@ -11,7 +12,7 @@ import {
   replaceStem,
   addSuffix
 } from './actions';
-
+/* #endregion */
 
 //todo: consdier adding a state from the server `window.STATE_FROM_SERVER` if I expand the app to have server capabilities and server-requiring features
 const store = createStore(
@@ -23,23 +24,19 @@ const store = createStore(
 //adds a suffix succesfully
 /* #region  Add a test suffix */
 store.dispatch(
-  addSuffix(
-    {
-      wordPartType: 'suffix',
-      text: 'kin'
-    }
-  )
+  addSuffix({
+    wordPartType: 'suffix',
+    text: 'kin'
+  })
 );
 /* #endregion */
 
 //updates the stem succesfully
 store.dispatch(
-  replaceStem(
-    { 
-      wordPartType: 'stem',
-      text: 'kirja'
-    }
-  )
+  replaceStem({
+    wordPartType: 'stem',
+    text: 'kirja'
+  })
 );
 
 export default store;

@@ -110,7 +110,7 @@ class SelectSuffix extends React.Component {
 }
 
 SelectSuffix.propTypes = {
-  //maybe change later the value to instanceOf an array of all suffix types I'll have in the app (need to have a list of them for that)
+  //maybe change later the value to onOf elements of an array of all suffix types I'll have in the app (need to have a list of them for that)
   suffixType: PropTypes.string.isRequired
 };
 

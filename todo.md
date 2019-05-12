@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 # **TODO**s
 
 <br>
@@ -101,9 +102,6 @@ For Updating suffix(es):
 - [ ] Decide whether I want to have (a `meaning` prop for stem `WordPart`s and a `type` prop for suffix `WordPart`s) or have a `meaning` prop for both
 - [ ] ~~Decide if I want for for Word to render `Suffix` and other WordParts (specialized classes/components) or render `WordPart` components instead~~
 
-- [ ] ~~Make `WordPart` components render WordPart components based on role (`Suffix`, `Stem`)~~
-- [ ] Finish converting `Word`'s wordPart input elements into components (`Suffix`, `Stem`)
-
 <br>
 
 ## Style/design
@@ -193,7 +191,7 @@ For Updating suffix(es):
 
 ## Bugs
 
- - [ ] In the `modify-word-parts` components, find where React tries to recognize the `handleClickOpen` prop on a DOM element and fails, and fix it.
+ - [ ] Fix the issue in `Word` that they `key` prop doesn't get passed to its children (`WordPart` components)
 
 <br>
 
