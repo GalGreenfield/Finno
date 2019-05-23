@@ -113,12 +113,12 @@ class ReplaceStemDialog extends React.Component {
 										autoFocus={true}
 										fullWidth={true}
 									/>
-									<Field
+									{/* <Field
 										name="firstName"
 										component="input"
 										type="text"
 										placeholder="First Name"
-									/>
+									/> */}
 								</Cell>
 							</Grid>
 					</DialogContent>

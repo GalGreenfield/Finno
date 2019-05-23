@@ -50,6 +50,7 @@ export default function App() {
 						width={1}
 					>
 						<Word text="autoissa" />
+						<span id="api_key">{process.env.development.API_KEY}</span>
 					</Cell>
 				</Grid>
 			</div>
