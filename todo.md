@@ -78,10 +78,10 @@ For Updating suffix(es):
     store: {
       word: {
         wordParts: [
-          0: { wordPartType: 'stem', ... } //stem
+          0: { partOfSpeech: 'stem', ... } //stem
           //If inserted - suffixes:
-          1: { wordPartType: 'suffix', ... } //suffix
-          2: { wordPartType: 'suffix', ... } //suffix
+          1: { partOfSpeech: 'suffix', ... } //suffix
+          2: { partOfSpeech: 'suffix', ... } //suffix
           ⋮
         ]
 

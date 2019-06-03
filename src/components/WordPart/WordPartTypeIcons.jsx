@@ -31,11 +31,11 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 const styles = theme => ({
 
-  wordPartTypeIconsContainer: {
+  partOfSpeechIconsContainer: {
     display: 'flex',
     padding: '0 8px',
   },
-  wordPartTypeIcon: {
+  partOfSpeechIcon: {
     height: '20px',
     padding: '12px 8px',
     "& > path": {
@@ -43,7 +43,7 @@ const styles = theme => ({
     }
   },
   //Might not be necessary - keep only if I support stems with no meaning
-  wordPartTypeIconDisabled: {
+  partOfSpeechIconDisabled: {
     "& > path": {
       fill: secondaryColor[600],
     }
@@ -55,7 +55,7 @@ const styles = theme => ({
   },
 });
 
-//WordPart wordPartType icons
+//WordPart partOfSpeech icons
 function WordPartTypeIcons(props) { 
 
   const { classes } = props;
@@ -70,7 +70,7 @@ function WordPartTypeIcons(props) {
           placement="bottom"
           PopperProps={{ disablePortal: true }}
         >
-          <SingularIcon className={classes.wordPartTypeIcon} />
+          <SingularIcon className={classes.partOfSpeechIcon} />
         </Tooltip>
       );
     }
@@ -82,7 +82,7 @@ function WordPartTypeIcons(props) {
           placement="bottom"
           PopperProps={{ disablePortal: true }}
         >
-          <PluralIcon className={classes.wordPartTypeIcon} />
+          <PluralIcon className={classes.partOfSpeechIcon} />
         </Tooltip>
       );
     }
@@ -100,19 +100,19 @@ function WordPartTypeIcons(props) {
     }
   }
 
-  if (props.WordPart__props.wordPartType === 'stem') {    
+  if (props.WordPart__props.partOfSpeech === 'stem') {    
 
     return (
 
-      <div className={classes.wordPartTypeIconsContainer}>
+      <div className={classes.partOfSpeechIconsContainer}>
 
         <Tooltip
-          title={props.WordPart__props.wordPartType}
+          title={props.WordPart__props.partOfSpeech}
           placement="bottom"
           classes={{ tooltip: classes.popper }}
           PopperProps={{ disablePortal: true }}
         >
-          <StemIcon className={classes.wordPartTypeIcon} />
+          <StemIcon className={classes.partOfSpeechIcon} />
         </Tooltip>
 
         {grammaticalNumberIcon(props.WordPart__props.grammaticalNumber)}
@@ -126,18 +126,18 @@ function WordPartTypeIcons(props) {
                 placement="bottom"
                 PopperProps={{ disablePortal: true }}
               >
-                  <TranslationIcon className={classes.wordPartTypeIcon} />
+                  <TranslationIcon className={classes.partOfSpeechIcon} />
               </Tooltip>
           )
           //Might not be necessary: keep only if I support stems with no meaning
-          : <TranslationIcon className={classNames(classes.wordPartTypeIcon, classes.wordPartTypeIconDisabled)} /> 
+          : <TranslationIcon className={classNames(classes.partOfSpeechIcon, classes.partOfSpeechIconDisabled)} /> 
         }
 
       </div>
     );
   }
   
-  if (props.WordPart__props.wordPartType === 'suffix') {
+  if (props.WordPart__props.partOfSpeech === 'suffix') {
 
     //todo: verify if there's a way to dynamically-produce components in React that are produced like all the other comopnents I've declare manually.
     /*
@@ -161,7 +161,7 @@ function WordPartTypeIcons(props) {
         return (
           React.createElement(
             grammaticalCase.charAt(0).toUpperCase() + grammaticalCase.slice(1) + 'Icon',
-            {className: classes.wordPartTypeIcon}
+            {className: classes.partOfSpeechIcon}
           )
         );
       }
@@ -172,14 +172,14 @@ function WordPartTypeIcons(props) {
     
     return (
 
-      <div className={classes.wordPartTypeIconsContainer}>
+      <div className={classes.partOfSpeechIconsContainer}>
         <Tooltip
-            title={props.WordPart__props.wordPartType}
+            title={props.WordPart__props.partOfSpeech}
             placement="bottom"
             classes={{ tooltip: classes.popper }}
             PopperProps={{ disablePortal: true }}
           >
-            <SuffixIcon className={classes.wordPartTypeIcon} />
+            <SuffixIcon className={classes.partOfSpeechIcon} />
         </Tooltip>
 
         {

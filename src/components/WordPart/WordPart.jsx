@@ -62,7 +62,7 @@ class WordPart extends React.Component {
 	constructor(props) {
 		super(props);
     this.key = this.props.key;
-    this.wordPartType = this.props.wordPartType;
+    this.partOfSpeech = this.props.partOfSpeech;
 		this.getModifyWordPartActionType = this.getModifyWordPartActionType.bind(
 			this,
 		);
@@ -74,11 +74,11 @@ class WordPart extends React.Component {
 	getModifyWordPartActionType() {
 		let modifyAction = "";
 
-		if (this.wordPartType === "suffix") {
+		if (this.partOfSpeech === "suffix") {
 			return (modifyAction = "add");
 		}
 
-		if (this.props.wordPartType === "stem") {
+		if (this.props.partOfSpeech === "stem") {
 			return (modifyAction = "replace");
 		}
 	}
@@ -115,7 +115,7 @@ class WordPart extends React.Component {
 }
 
 WordPart.propTypes = {
-	wordPartType: oneOf(["stem", "suffix"]).isRequired,
+	partOfSpeech: oneOf(["stem", "suffix"]).isRequired,
 };
 
 export default withStyles(styles)(WordPart);

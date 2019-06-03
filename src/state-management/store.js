@@ -25,7 +25,7 @@ const store = createStore(
 /* #region  Add a test suffix */
 store.dispatch(
   addSuffix({
-    wordPartType: 'suffix',
+    partOfSpeech: 'suffix',
     text: 'kin'
   })
 );
@@ -34,7 +34,7 @@ store.dispatch(
 //updates the stem succesfully
 store.dispatch(
   replaceStem({
-    wordPartType: 'stem',
+    partOfSpeech: 'stem',
     text: 'kirja'
   })
 );

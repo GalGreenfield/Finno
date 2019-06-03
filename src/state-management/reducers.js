@@ -13,13 +13,13 @@ const initial_store_state = {
   word: {
     wordParts: deconstructWord("autoissa"),
     /* wordParts: [
-      { wordPartType: 'stem', text: 'test_stem' },
-      { wordPartType: 'suffix', text: 'test_suffix' }
+      { partOfSpeech: 'stem', text: 'test_stem' },
+      { partOfSpeech: 'suffix', text: 'test_suffix' }
     ], */
     /* get stem() {
       this.wordParts.find(
         wordPart => {
-          if (wordPart.wordPartType==='stem') {
+          if (wordPart.partOfSpeech==='stem') {
             return wordPart;
           }
         }
