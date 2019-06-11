@@ -23,7 +23,7 @@ const styles = {
 	},
 };
 
-//to do: modify based on the `TODO.md` specifications
+//to do: modify stemd on the `TODO.md` specifications
 class Word extends React.Component {
 
 	get stem() {

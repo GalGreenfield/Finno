@@ -1,22 +1,21 @@
 /* #region Consts */
 const axios = require('axios');
 
-/* #region API Reuqest Consts */
-const api_key = process.env.REACT_APP_API_KEY;
-const base_url = 'https://api.lingsoft.fi/lmc'
-const language_code = 'fi';
+/* #region API Request Consts */
+const API_KEY = process.env.REACT_APP_API_KEY;
+const BASE_URL = 'https://api.lingsoft.fi/lmc'
+const LANGUAGE_CODE = 'fi';
+const DOMAIN = 'Standard+Generator'
 /* #endregion */
 
 /* #region Create Axios Instance Configuration */
-const axios_instance = axios.create(
-  {
-    baseURL: base_url,
-    headers: {
-      'Content-Type': 'application/json',
-      apiKey: api_key
-    }
+const axios_instance = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+    apiKey: API_KEY
   }
-);
+});
 /* #endregion */
 
 /* #endregion */
@@ -31,17 +30,18 @@ function mapTags(tags) {
 }
 
 /**
- *Sends a word's text into LMC's `analyze` function to morphologically analyze it
- * @param {string} word
+ * Sends a word's text to LMC's `analyze` function to morphologically analyze it
+ * @param {string} word_text the actual word to be analyzed
  */
-export function analyzeWord(word) {
-  axios_instance.request({
+async function analyzeWord(word_text) {
+  /* #region Send to LMC's `analyze` function */
+  return await axios_instance.request({
       method: 'post',
       url: '/analyze',
       data: {
-        language: language_code,
+        language: LANGUAGE_CODE,
         //domain //not sending it - defaults to the language's default domain
-        text: word.text /* todo: replace with the word's text */ ,
+        text: word_text,
         options: {
           JsonSenses: true,
           RawBase: true,
@@ -49,33 +49,106 @@ export function analyzeWord(word) {
         }
       }
     })
+    /* #endregion */
+  /* #region Process Response */
     .then(
       (response) => {
 
-        let stem = response.data.json.tokens[0].readings[0].base;
-        let tags = response.data.json.tokens[0].readings[0].tags;
+        let word_readings = response.data.json.tokens[0].readings[0];
 
-        let analyzedWord = {
-          text: word.text,
-          stem: stem,
-          grammaticalProperties: tags
+        let analyzed_word = {
+          text: word_text,
+          base: word_readings.base,
+          tags: word_readings.tags
         };
+        return analyzed_word;
 
-        console.log(analyzedWord);
-
-        return analyzedWord;
-        
       }
-    );
+    )
+    /* #region Handle `(s) */
+    .catch(
+      (error) => {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      }
+    )
+  /* #endregion */
+  /* #endregion */
 }
 
-/*
-export function generatorWord(word_stem) {
-
+/**
+ * Sends a word's stem and grammatical properties tags to generate a word (conjugation from the stem)
+ * @param {string} word_base the word base to conjugate
+ * @param {object} grammatical_properties_tag the grammatical properties tags to conjugate `word_base` by
+ */
+async function generateWord(word_text, grammatical_properties_tags) {
+  /* #region Send to LMC's `analyze` function */
+  return await axios_instance.request({
+    method: 'post',
+    url: '/generate',
+    data: {
+      domain: DOMAIN,
+      generatorInput: { 
+        base: word_text,
+        tags: grammatical_properties_tags,
+        rawTags: ""
+      }
+    }
+  })
+  /* #endregion */
+  /* #region Process Response */
+  .then(
+    (response) => {
+      return response.data.generatorOutput;
+    }
+  )
+  /* #region Handle Error(s) */
+    .catch(
+      (error) => {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      }
+    )
+  /* #endregion */
+  /* #endregion */
+  /* endregion */
 }
-*/
 
+async function conjugateWord(word_text) {
+  let analyzed_word = await analyzeWord(word_text);
+  console.log(analyzed_word);
+}
 
-//curl request that works:
-/* https://api.lingsoft.fi/lmc/analyze -H 'Content-Type: application/json' -H 'apikey: b4tsK94aqPSSpl4PVnFfJ9SDQNgsG9tg' 
--d '{ "language" : "fi", "text": "Minun söpö koirat" }' */
+export {
+  analyzeWord,
+  generateWord,
+  conjugateWord
+};

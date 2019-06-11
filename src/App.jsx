@@ -21,40 +21,7 @@ import { Field } from 'redux-form';
 
 import request from 'request';
 
-
-import { analyzeWord } from '../src/wordFunctions';
-
-function testCall() {
-	var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://api.lingsoft.fi/lmc/generate/',
-  headers: 
-   {
-     'cache-control': 'no-cache',
-     base: 'koira',
-     language: 'finnish',
-     GenUseLslingTags: false,
-     'Content-Type': 'application/json',
-     apiKey: 'b4tsK94aqPSSpl4PVnFfJ9SDQNgsG9tg' } };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-
-}
-
-
 export default function App() {
-
-	{
-		analyzeWord(
-			{ text: `autoissakin` },
-			{}
-		);
-	}
 
 	return (
 		<Provider store={store}>
@@ -91,4 +58,5 @@ export default function App() {
 			</div>
 		</Provider>
 	);
+	
 }

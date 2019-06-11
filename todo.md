@@ -30,27 +30,27 @@
 #### I THINK I MIGHT HAVE FOUND SOMETING THAT WOULD DO THE LOGIC FOR ME AND I'D BE ABLE TO USE IT AS AN API!!!
 ##### http://www2.lingsoft.fi/cgi-bin/fintwol
 
-#### For a word to be constructed, a `stem` property is required.
+#### For a word to be constructed, a `base` property is required.
 
   `Word` $\in$ the dictionary has the following properties:
 
   - `text` - the text of the word
   - `type` (noun/verb,adjective, etc.)
   - `categories` (that the word belongs to)
-  - Note: word deconstruction will be functional - and for now, will deconstruct the word to its `stem` and `suffixes`
+  - Note: word deconstruction will be functional - and for now, will deconstruct the word to its `base` and `suffixes`
 
   `Word` 
   : a parent element of component `WordPart` and is built of at least one `WordPart` components
-  - [ ] Add a `stem` property to `Word`. Finnish inflections are 1-way functions, for deconstructing a given word, a stem is required.
+  - [ ] Add a `base` property to `Word`. Finnish inflections are 1-way functions, for deconstructing a given word, a base is required.
 
   `WordPart`
   : a child element of `Word`. Properties:
 
   - `text` (is deconstructed from its parent `Word`)
-  - `type` (stem, suffix, etc.)
+  - `type` (base, suffix, etc.)
   - [x] Fix word part (text) alignment
 
-- [x] I'll need to think how to implement various WordPart types (suffiex, stems, etc.) - what properties they will have and how will this/these object be structured in relation to `WordType`.
+- [x] I'll need to think how to implement various WordPart types (suffiex, bases, etc.) - what properties they will have and how will this/these object be structured in relation to `WordType`.
 
 ### State Management (with Redux)
 
@@ -58,11 +58,11 @@
 
 #### Things I'll need to do to update a `Word`:
 
-For updating the `stem` property:
+For updating the `base` property:
 
 - [ ] Create a reducer that:
-  - [x] Updates the stem from a dispatch
-  - [ ] Takes the submitted text (stem to replace) from the stem replacement dialog search and updates the stem
+  - [x] Updates the base from a dispatch
+  - [ ] Takes the submitted text (base to replace) from the base replacement dialog search and updates the base
 
 For Updating suffix(es):
 - [ ] Create a an action that:
@@ -78,7 +78,7 @@ For Updating suffix(es):
     store: {
       word: {
         wordParts: [
-          0: { partOfSpeech: 'stem', ... } //stem
+          0: { partOfSpeech: 'base', ... } //base
           //If inserted - suffixes:
           1: { partOfSpeech: 'suffix', ... } //suffix
           2: { partOfSpeech: 'suffix', ... } //suffix
@@ -98,10 +98,9 @@ For Updating suffix(es):
 
 ## Todos 
 
-- [x] Pass **all** props of `WordPart` to `Word` to be able to use stem `WordParts`'s `translation` property to render the stem's meaning in English
-- [ ] Decide whether I want to have (a `meaning` prop for stem `WordPart`s and a `type` prop for suffix `WordPart`s) or have a `meaning` prop for both
+- [x] Pass **all** props of `WordPart` to `Word` to be able to use base `WordParts`'s `translation` property to render the base's meaning in English
+- [ ] Decide whether I want to have (a `meaning` prop for base `WordPart`s and a `type` prop for suffix `WordPart`s) or have a `meaning` prop for both
 - [ ] ~~Decide if I want for for Word to render `Suffix` and other WordParts (specialized classes/components) or render `WordPart` components instead~~
-
 <br>
 
 ## Style/design
@@ -131,7 +130,7 @@ For Updating suffix(es):
 
   WordPart Type:
   - [x] Suffix
-  - [x] Stem (word stem)
+  - [x] Stem (word base)
   
   Grammatical Number:
   - [x] Singular
@@ -198,7 +197,7 @@ For Updating suffix(es):
 ## Minimal Viable Project goals:
 
 - Be able to deconstruct (preferably) any word in the Finnish language and display its words parts with icons + tooltips for the following properties of each word part:
-  - Word part type - stem/suffix <br>
+  - Word part type - base/suffix <br>
   If has grammatical number:
   - Grammatical number <br>
   If suffix: <br>
