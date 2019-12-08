@@ -140,6 +140,7 @@ class ReplaceStemDialog extends React.Component {
 }
 
 ReplaceStemDialog.propTypes = {
+	//action: PropTypes.oneOf(["replace"]).isRequired,
 	action: PropTypes.oneOf(["replace"]).isRequired,
 };
 

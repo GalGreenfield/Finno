@@ -1,0 +1,10 @@
+{
+	"Import and Alias shortid.generate()": {
+		"scope": "javascript, typescript, javascriptreact",
+		"prefix": "igi",
+		"body": [
+			"import { generate as 'generateKey' } from 'shortid'"
+		],
+		"description": "Import and Alias the `shortid` Library's ID generation Function"
+	}
+}

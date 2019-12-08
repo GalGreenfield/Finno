@@ -11,25 +11,10 @@ I haven't decided yet on an initial store_state for the whole app or just specif
 */
 const initial_store_state = {
   word: {
-    wordParts: deconstructWord("autoissa"),
-    /* wordParts: [
-      { partOfSpeech: 'stem', text: 'test_stem' },
-      { partOfSpeech: 'suffix', text: 'test_suffix' }
-    ], */
-    /* get stem() {
-      this.wordParts.find(
-        wordPart => {
-          if (wordPart.partOfSpeech==='stem') {
-            return wordPart;
-          }
-        }
-      )
-    } */
-    /* get stem() {
-      return this.wordParts[0]
-    }, */
+    // wordParts: deconstructWord("autoissa"),
     
-    
+    //todo: replace with the word deconstruction function
+    wordParts: deconstructWord("lentoasemat"),
   }
 }
 

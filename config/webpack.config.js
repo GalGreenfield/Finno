@@ -57,7 +57,7 @@ module.exports = function (webpackEnv) {
   const publicPath = isEnvProduction ?
     paths.servedPath :
     isEnvDevelopment && '/';
-  // Some apps do not use client-side routing with pushState.
+  // Some apps do not use client-side routing with push e.
   // For these, "homepage" can be set to "." to enable relative asset paths.
   const shouldUseRelativeAssetPaths = publicPath === './';
 
@@ -470,6 +470,7 @@ module.exports = function (webpackEnv) {
       ],
     },
     plugins: [
+      /* #region `create-react-app` Pre-Configured Plugins */
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign({}, {
@@ -585,6 +586,14 @@ module.exports = function (webpackEnv) {
         // The formatter is invoked directly in WebpackDevServerUtils during development
         formatter: isEnvProduction ? typescriptFormatter : undefined,
       }),
+      /* #endregion */
+      /* #region My Custon Plugins */
+      new webpack.ProvidePlugin(
+        {
+          React: 'react'
+        }
+      )
+      /* #endregion */
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.
     // Tell Webpack to provide empty mocks for them so importing them works.

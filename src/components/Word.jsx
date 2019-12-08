@@ -1,29 +1,41 @@
+/* #region Imports */
+
+/* #region React */
 import React from "react";
+/* #endregion */
 
-import { withStyles } from "@material-ui/core/styles";
+import '../globals';
 
+/* #region WordPart */
 import WordPart from "./WordPart/WordPart";
+/* #endregion */
 
-//import deconstructWord from '../word-deconstruction/deconstructWord'
-
-//#region Redux->Component Mapping Imports
+//#region Redux->Component Mapping
 import { connect } from "react-redux";
 import { replaceStem, addSuffix } from "../state-management/actions";
 //#endregion
+/* #region Style */
+import { withStyles } from "@material-ui/core/styles";
+/* #endregion */
 
-const styles = {
-	word: {
-		display: "flex",
-		"& > :not(:last-child)": {
-			marginRight: "8px",
+/* #endregion */
+
+const styles = theme => (
+		{
+		word: {
+			display: "flex",
+			"& > :not(:last-child)": {
+				marginRight: "8px",
+			},
 		},
-	},
-	text: {
-		fontSize: "1.75rem",
-	},
-};
+		text: {
+			fontSize: "1.75rem",
+		},
+	}
+);
 
 //to do: modify stemd on the `TODO.md` specifications
+/* #region Component */
 class Word extends React.Component {
 
 	get stem() {
@@ -38,7 +50,7 @@ class Word extends React.Component {
 		const wordPartsCards = this.props.wordParts.map(
 			(wordPartProps, index) => {
 				return (
-					<WordPart key={index} {...wordPartProps} />
+					<WordPart key={index} id={index} {...wordPartProps} />
 				);
 			}
 		);
@@ -50,8 +62,9 @@ class Word extends React.Component {
 		);
 	}
 }
+/* #endregion */
 
-/* #region Connect Component to the Redux Store */
+/* #region Connect Component ⟷ Redux Store */
 const mapStateToProps = (store_state, ownProps) => {
 	return store_state.word;
 };
@@ -69,7 +82,5 @@ const WordStoreSubscriber = connect(
 )(Word);
 
 /* #endregion */
-//todo: add a propType for `stem` and `wordParts`
 
-//todo: Figure out a way to export the state of `Word` such that Redux could use it for the `initial_state` of the `store`.
 export default withStyles(styles)(WordStoreSubscriber);

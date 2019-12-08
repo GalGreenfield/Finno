@@ -1,0 +1,8 @@
+{
+	"generateKey()": {
+		"scope": "javascript, typescript, javascriptreact",
+		"prefix": "gk",
+		"body": "generateKey()",
+		"description": "Writes `generateKey()`, an alias for `shortid.generate()`"
+	}
+}

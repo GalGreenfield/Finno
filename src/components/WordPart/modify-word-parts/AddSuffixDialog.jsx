@@ -1,4 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+import { generate as generateKey } from 'shortid'
 
 import { withStyles } from "@material-ui/core/styles";
 import { primaryColor, secondaryColor } from "../../../style/colors";
@@ -58,102 +61,105 @@ class SelectSuffixToModify extends React.Component {
 	};
 
 	render() {
+
 		const { classes } = this.props;		
 
-		if (this.props.action === "add") {
-			//todo: add an MUI `Badge` to each cell, and put an icon in the `badgeContent` property of the `Badge`
+		
+		//todo: add an MUI `Badge` to each cell, and put an icon in the `badgeContent` property of the `Badge`
 
-      const dummy_suffix_button = (
-				<SuffixToSelectButton suffixType="Allative">
-					<SuffixIcon className={classes.suffixIcon} />
-				</SuffixToSelectButton>
-			);
+		const dummy_suffix_button = (
+			<SuffixToSelectButton suffixType="Allative">
+				<SuffixIcon
+				className={classes.suffixIcon}
+				key ={generateKey()} />
+			</SuffixToSelectButton>
+		);
 
-      /* #region Dummy Content Generation */
-			//todo: once I have suffixes for all the icons, replace the array with an object whose elements have properties: `suffixType`, `suffixIconName`,
-      //todo: after creating the object, replace below the interation over the array with iteration over the object to use the object's element's properties
-			const dummy_suffix_buttons = [
+		/* #region Dummy Content Generation */
+		//todo: once I have suffixes for all the icons, replace the array with an object whose elements have properties: `suffixType`, `suffixIconName`,
+		//todo: after creating the object, replace below the interation over the array with iteration over the object to use the object's element's properties
+		const dummy_suffix_buttons = [
 
-				<SuffixToSelectButton suffixType="Allative">
-					<AllativeIcon className={classes.suffixIcon} />
-        </SuffixToSelectButton>,
-        
-				<SuffixToSelectButton suffixType="Inessive">
-          <InessiveIcon className={classes.suffixIcon} />
-        </SuffixToSelectButton>,
+			<SuffixToSelectButton suffixType="Allative">
+				<AllativeIcon className={classes.suffixIcon} />
+			</SuffixToSelectButton>,
+			
+			<SuffixToSelectButton suffixType="Inessive">
+				<InessiveIcon className={classes.suffixIcon} />
+			</SuffixToSelectButton>,
 
-        dummy_suffix_button,
-				dummy_suffix_button,
-				dummy_suffix_button,
-				dummy_suffix_button,
-				dummy_suffix_button,
-				dummy_suffix_button,
-				dummy_suffix_button,
-				dummy_suffix_button,
-				dummy_suffix_button,
-				dummy_suffix_button,
-				dummy_suffix_button,
-				dummy_suffix_button,
-			];
-			/* #endregion */
+			dummy_suffix_button,
+			dummy_suffix_button,
+			dummy_suffix_button,
+			dummy_suffix_button,
+			dummy_suffix_button,
+			dummy_suffix_button,
+			dummy_suffix_button,
+			dummy_suffix_button,
+			dummy_suffix_button,
+			dummy_suffix_button,
+			dummy_suffix_button,
+			dummy_suffix_button,
+		];
+		/* #endregion */
 
-			return (
-				<React.Fragment>
-					<ModifyWordPartButton
-						action={this.props.action}
-						handleClickOpen={this.handleClickOpen}
-					/>
+		return (
+			<React.Fragment>
+				<ModifyWordPartButton
+					action={this.props.action}
+					handleClickOpen={this.handleClickOpen}
+				/>
 
-					<Dialog
-						fullWidth={true}
-						maxWidth="md"
-						open={this.state.open}
-						onClose={this.handleClose}
-						aria-labelledby="alert-dialog-title"
-						aria-describedby="alert-dialog-description"
-					>
-						<DialogTitle id="alert-dialog-title">Select Suffix</DialogTitle>
+				<Dialog
+					fullWidth={true}
+					maxWidth="md"
+					open={this.state.open}
+					onClose={this.handleClose}
+					aria-labelledby="alert-dialog-title"
+					aria-describedby="alert-dialog-description"
+				>
+					<DialogTitle id="alert-dialog-title">Select Suffix</DialogTitle>
 
-						<DialogContent>
-							<Grid gap={"0px"} columns={5} rows={3}>
-								{
-									dummy_suffix_buttons.map(
-										dummy_suffix_button => {
-											return (
-												<Cell
-													style={{
-														height: "fit-content",
-														justifySelf: "center",
-														alignSelf: "center",
-													}}
-												>
-													{dummy_suffix_button}
-												</Cell>
-											)
-										}
-									)
-								}
-							</Grid>
-						</DialogContent>
+					<DialogContent>
+						<Grid gap={"0px"} columns={5} rows={3}>
+							{
+								dummy_suffix_buttons.map(
+									dummy_suffix_button => {
+										return (
+											<Cell
+												style={{
+													height: "fit-content",
+													justifySelf: "center",
+													alignSelf: "center",
+												}}
+											>
+												{dummy_suffix_button}
+											</Cell>
+										)
+									}
+								)
+							}
+						</Grid>
+					</DialogContent>
 
-						<DialogActions>
-							<Button onClick={this.handleClose} color="primary">
-								Cancel
-							</Button>
+					<DialogActions>
+						<Button onClick={this.handleClose} color="primary">
+							Cancel
+						</Button>
 
-							<Button onClick={this.handleClose} color="primary" autoFocus>
-								Add
-							</Button>
-						</DialogActions>
-					</Dialog>
-				</React.Fragment>
-			);
-		}
+						<Button onClick={this.handleClose} color="primary" autoFocus>
+							Add
+						</Button>
+					</DialogActions>
+				</Dialog>
+			</React.Fragment>
+		);
+	
 	}
 }
 
 SelectSuffixToModify.propTypes = {
-	action: 'add'.isRequired //todo: check prop-types supports providing hard-coded values
+	action: PropTypes.oneOf(["add"]).isRequired,
 }
 
 export default withStyles(styles)(SelectSuffixToModify);

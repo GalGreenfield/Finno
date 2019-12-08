@@ -91,12 +91,12 @@ For Updating suffix(es):
 
 #### Desired dynamic app behavior with Redux - progress:
 - [x] The `Word` component is initialized with the initial state of the Redux store
-- [ ] The `Word` component gets re-rendered on change of the properties of the store it uses (by actions getting dispatched)
+- [x] The `Word` component gets re-rendered on change of the properties of the store it uses (by actions getting dispatched)
   
 #### Todo:
 - [ ] Figure out a way to export the state of `Word` such that Redux could use it for the `initial_state` of the `store` while still exporting `Word` with  JSS's `withStyles` (so JSS could style it).
 
-## Todos 
+##   Todos 
 
 - [x] Pass **all** props of `WordPart` to `Word` to be able to use base `WordParts`'s `translation` property to render the base's meaning in English
 - [ ] Decide whether I want to have (a `meaning` prop for base `WordPart`s and a `type` prop for suffix `WordPart`s) or have a `meaning` prop for both
@@ -120,6 +120,13 @@ For Updating suffix(es):
 - [ ] Make the `WordPart` cards draggable up-down a bit (on the y-axis) until a critical distance:
     - Gradiently become more opaque as the near the critical distance (in relation to rest position)
     - When released at >= critical distance or greater they are removed
+- [ ] Compound Word Bases:
+  - [ ] Decide if I want an icon for compound bases
+  -  If I do: design an icon for:
+  - [ ] Compound base
+  - [ ] Compound base part (stem)
+  - [ ] Make compound bases be sub-cards (on a card) of a bigger card
+  
 
 ### Icons
 

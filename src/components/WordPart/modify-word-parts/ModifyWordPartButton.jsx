@@ -152,5 +152,4 @@ class ModifyWordPartButton extends React.Component {
 
 }
 
-
 export default withStyles(styles)(ModifyWordPartButton);

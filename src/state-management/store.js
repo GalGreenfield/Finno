@@ -22,21 +22,22 @@ const store = createStore(
 );
 
 //adds a suffix succesfully
-/* #region  Add a test suffix */
-store.dispatch(
+/* #region Add a test suffix */
+/* store.dispatch(
   addSuffix({
     partOfSpeech: 'suffix',
     text: 'kin'
   })
-);
+); */
 /* #endregion */
 
 //updates the stem succesfully
-store.dispatch(
+/* store.dispatch(
   replaceStem({
     partOfSpeech: 'stem',
-    text: 'kirja'
+    text: 'lentoasema',
+    variant: 'compound'
   })
-);
+); */
 
 export default store;

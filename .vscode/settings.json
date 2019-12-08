@@ -1,36 +1,60 @@
 {
+    //#region Fonts
     "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
-    //"TODOhighlight.isCaseSensitive": false,
+    //#endregion
+
+    //#region Git
     "git.scanRepositories": [
         "https://github.com/GalGreenfield/Finno.git"
     ],
+    //#endregion
 
+    //Code Formatting
     "editor.tabSize": 2,
+    //#region Code Folding
+    "maptz.regionfolder": {
+        
+        //#region JavaScript
+        "[javascript]": {                                //Language selector
+            "foldStart": "/* #region [NAME] */",         //Text inserted at the start of the fold.
+            "foldEnd": "/* #endregion */",               //Text inserted at the end of the fold
+            "foldStartRegex": "[\\s]*#region[\\s]*(.*)", //Regex used to find fold start text
+            "foldEndRegex": "[\\s]*#endregion",          //Regex used to find fold end text
+                                                         //Use the `[NAME]` placeholder to indicate
+                                                         //where the cursor should be placed after insertion*/
+      },
+      //#endregion
+      
+        //#region JavaScript
+            "[javascriptreact]": {                       //Language selector
+            "foldStart": "/* #region [NAME] */",         //Text inserted at the start of the fold.
+            "foldEnd": "/* #endregion */",               //Text inserted at the end of the fold
+            "foldStartRegex": "[\\s]*#region[\\s]*(.*)", //Regex used to find fold start text
+            "foldEndRegex": "[\\s]*#endregion",          //Regex used to find fold end text
+                                                         //Use the `[NAME]` placeholder to indicate
+                                                         //where the cursor should be placed after insertion*/
+      },
+
+    }//#endregion
+    ,
+    
+    //
     "svg.preview.background": "white",
     "trello.token": "f43b0c8cf5dcd1f5f2cccd95329c965a9839633a25efe3b00e713d0f47ac485d",
     "trello.defaultList": "5c709043e42e7b7bb5398fa4",
 
+    //#region Terminal
     "terminal.integrated.shell.windows": "E:\\Programming\\Git\\Installation\\bin\\sh.exe",
+    //#endregion
 
     "editor.showFoldingControls": "always",
     "editor.renderIndentGuides": true,
 
-    "prettier.tabWidth": 2,
-    "prettier.trailingComma": "all",
-    "prettier.useTabs": true,
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.enableBell": true,
 
-    "maptz.regionfolder": {
-        "[javascriptreact]": {                           //Language selector
-            "foldStart": "/* #region [NAME] */",         //Text inserted at the start of the fold.
-            "foldEnd": "/* #endregion */",               //Text inserted at the end of the fold
-            "foldStartRegex": "[\\s]*#region[\\s]*(.*)", //Regex used to find fold start text.
-            "foldEndRegex": "[\\s]*#endregion",          //Regex used to find fold end text.
-                                                         //Use the `[NAME]` placeholder to indicate
-                                                         //where the cursor should be placed after insertion
-            
-      }
-    }
+    
+
+    "editor.quickSuggestionsDelay": 5
 }
